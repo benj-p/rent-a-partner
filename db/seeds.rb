@@ -29,13 +29,13 @@ user_4 = User.create({email: "leticia@aol.com", password: "secret", first_name: 
                   desired_age: 29, desired_gender: "male", bio: "Hi, I'm Leti! I'm super young and fun. I have steez. Just FYI, I'm vegan, so please don't
                   bring me to events where the only food is bacon-wrapped figs thx!!", is_partner: true})
 
-ben_1 = Personality.new(first_name: "François", last_name: "Le Français", bio: "I'm the ultimate french guy: heavy smoker, snail eater and quite rude. On the positive side, I'm a very sophistaced eater and very passionate about arts.", desired_gender: "female", desired_age: 50, picture: "https://i.redd.it/sifmpfgly0611.jpg")
+ben_1 = Personality.new(first_name: "François", last_name: "Le Français", bio: "I'm the ultimate french guy: heavy smoker, snail eater and quite rude. On the positive side, I'm a very sophistaced eater and very passionate about arts.", desired_gender: "female", desired_age: 50, picture: "https://i.redd.it/sifmpfgly0611.jpg", price_per_day: 35)
 ben_1.user = user_2
 ben_1.save
-leti_1 = Personality.new(first_name: "Jessica", last_name: "Ravel", bio: "I'm the very discrete and quiet girl that people usually barely notice. I have a strong british accent, love the countryside and have never travelled outside of the UK", desired_gender: "male", desired_age: 24, picture: "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg")
+leti_1 = Personality.new(first_name: "Jessica", last_name: "Ravel", bio: "I'm the very discrete and quiet girl that people usually barely notice. I have a strong british accent, love the countryside and have never travelled outside of the UK", desired_gender: "male", desired_age: 24, picture: "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg", price_per_day: 30)
 leti_1.user = user_4
 leti_1.save
-leti_2 = Personality.new(first_name: "Violet", last_name: "Edgar", bio: "I'm quite the opposite of Jessica (my other me): I dress up quite wildly and am very expansive and loud. Very sociable, I can talk to anyone and I really enjoy the LGBT community.", desired_gender: "other", desired_age: 28, picture: "https://www.out.com/sites/out.com/files/2018/01/24/ap_18008246236253.jpg")
+leti_2 = Personality.new(first_name: "Violet", last_name: "Edgar", bio: "I'm quite the opposite of Jessica (my other me): I dress up quite wildly and am very expansive and loud. Very sociable, I can talk to anyone and I really enjoy the LGBT community.", desired_gender: "other", desired_age: 28, picture: "https://www.out.com/sites/out.com/files/2018/01/24/ap_18008246236253.jpg", price_per_day: 45)
 leti_2.user = user_4
 leti_2.save
 
