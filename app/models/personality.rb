@@ -2,7 +2,7 @@ class Personality < ApplicationRecord
   belongs_to :user
   has_many :bookings
 
-  validates :first_name, :last_name, :email, :picture,
+  validates :first_name, :last_name, :picture,
             :desired_gender, :desired_age, :bio, presence: true
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :bio, length: { minimum: 100, maximum: 500 }
