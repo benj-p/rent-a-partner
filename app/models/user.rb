@@ -8,7 +8,7 @@ class User < ApplicationRecord
   has_many :bookings
 
   validates :first_name, :last_name, :email, :location, :age, :gender, :picture,
-            :desired_gender, :desired_age, :bio, :is_partner, presence: true
+            :desired_gender, :desired_age, :bio, presence: true
   validates :email, uniqueness: true
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :bio, length: { minimum: 100, maximum: 500 }
@@ -20,5 +20,12 @@ class User < ApplicationRecord
   def capitalize_name
     first_name.capitalize!
     last_name.capitalize!
+  end
+
+  def email_required?
+    false
+  end
+  def email_changed?
+    false
   end
 end
