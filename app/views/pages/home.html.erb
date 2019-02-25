@@ -15,150 +15,26 @@
   <a href="#" class="btn btn-grey">BUTTON</a>
   <div class="cards-grid">
 
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
+    <% @personalities.each do |personality| %>
+      <div class="card-container">
+        <div class="card-img" style="background-image: url(<%= personality.picture %>)">
+          <div class="card-badge"><p>£25 per night</p></div>
+        </div>
+        <div class="card-info">
+          <h3><%= personality.first_name %></h3>
+          <p><%= personality.user.age %> years old</p>
+        </div>
+        <div class="card-ratings">
+          <p>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </p>
+        </div>
       </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
-    <div class="card-container">
-      <div class="card-img" style="background-image: url(https://images.pexels.com/photos/937481/pexels-photo-937481.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)">
-        <div class="card-badge"><p>£25 per night</p></div>
-      </div>
-      <div class="card-info">
-        <h3>Jonny City Slicker</h3>
-        <p>29 years old</p>
-      </div>
-      <div class="card-ratings">
-        <p>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-          <i class="fas fa-star"></i>
-        </p>
-      </div>
-    </div>
+    <% end %>
 
   </div>
 </div>
