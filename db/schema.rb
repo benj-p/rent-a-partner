@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_25_155935) do
+ActiveRecord::Schema.define(version: 2019_02_25_175756) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_155935) do
     t.text "bio"
     t.bigint "user_id"
     t.string "desired_gender"
-    t.string "desired_age"
+    t.integer "desired_age"
     t.string "picture"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -52,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_02_25_155935) do
     t.string "gender"
     t.string "picture"
     t.string "desired_gender"
-    t.string "desired_age"
+    t.integer "desired_age"
     t.text "bio"
     t.boolean "is_partner", default: false
     t.datetime "created_at", null: false
