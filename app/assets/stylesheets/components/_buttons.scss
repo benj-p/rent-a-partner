@@ -1,0 +1,23 @@
+.btn-green {
+  background: #6EFFBF;
+  &:hover {
+    background: #66ECB1;
+  }
+}
+
+.btn-grey {
+  background: #909090;
+  &:hover {
+    background: #606060;
+  }
+}
+
+.btn {
+  color: #fff;
+  padding: 8px 24px;
+  border-radius: 4px;
+  transition: 0.3s;
+  &:hover {
+    color: #fff;
+  }
+}
