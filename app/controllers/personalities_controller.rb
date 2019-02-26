@@ -1,6 +1,7 @@
 class PersonalitiesController < ApplicationController
 
   def index
+    @personalities = Personality.all
   end
 
   def new
