@@ -32,7 +32,8 @@
 				<% if @personalities.count > 1 %>
 					<p>Those are Ben's other personalities:</p>
 					<% @personalities.each do |personality| %>
-						<%= cl_image_tag personality.picture %>
+						<% next if personality == @personality   %>
+						<%= cl_image_tag personality.picture%>
 					<% end %>
 				<% else %>
 					<p>This is  <%= @personality.user.first_name%>'s only personality</p>

@@ -12,6 +12,7 @@
 
 .personality-image{
 	border-radius: 8px;
+	height: 300px;
 }
 
 .stars-pink{
@@ -21,4 +22,12 @@
 .personality-of{
 	display: flex;
 	justify-content: space-between;
+}
+
+.other-personalities{
+	img {
+		height: 50px;
+		width: 50px;
+		object-fit: cover;
+	}
 }
