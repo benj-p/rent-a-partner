@@ -7,6 +7,8 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
+    <% if current_user %>
+
     <a href="" class="navbar-wagon-item navbar-wagon-link">Personalities</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
@@ -22,6 +24,10 @@
         </ul>
       </div>
     </div>
+
+    <% else %>
+      <%= link_to "Sign in", new_user_session_path %>
+    <% end %>
   </div>
 
   <!-- Dropdown appearing on mobile only -->
