@@ -3,7 +3,12 @@ class PersonalitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @personalities = policy_scope(Personality.match_search_terms(params[:q]))
+    @personalities = policy_scope(Personality)
+      @locations_array = [nil]
+      @personalities.each do |personality|
+        @locations_array << personality.user.location
+      end
+    @personalities = policy_scope(Personality.match_search_terms(params[:q]).location(params[:location]))
   end
 
   def show

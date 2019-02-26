@@ -12,7 +12,7 @@ user_1 = User.create({email: "izzyweber@gmail.com", password: "secret", first_na
                   wedding in June!! You'd get a free trip to Boston and lodging for a week on the North Shore.", is_partner: false})
 
 user_2 = User.create({email: "asdsda@gmail.com", password: "secret", first_name: "Ben",
-                  last_name: "Pham", location: "London", age: 29, gender: "male",
+                  last_name: "Pham", location: "Paris", age: 29, gender: "male",
                   picture: "https://avatars2.githubusercontent.com/u/43788107?s=400&v=4",
                   desired_age: 29, desired_gender: "female", bio: "Hi, I'm Ben. I'm French and starting my own business so I need extra cash. I
                   particularly love going to weddings! Don't worry, my girlfriend is cool with this.", is_partner: true})
