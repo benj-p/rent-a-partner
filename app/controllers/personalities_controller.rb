@@ -15,7 +15,7 @@ class PersonalitiesController < ApplicationController
   def create
     @personality = Personality.new(personality_params)
     @personality.user = current_user
-    if @personality.save
+    if @personality.saves
       redirect_to personality_path(@personality)
     else
       render :new
