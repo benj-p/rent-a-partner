@@ -1,5 +1,41 @@
-<h1>Show page for <%= @personality.first_name %> <%= @personality.last_name %></h1>
+
 
 <% if policy(@personality).edit? %>
   <%= link_to "Edit Personality", edit_personality_path(@personality) %>
 <% end %>
+
+
+<div class="container">
+	<div class="info-image">
+		<div class="info">
+			<h1><%= @personality.first_name %> <%= @personality.last_name %></h1>
+			<p>desired age: <%= @personality.desired_age %></p>
+			<p>Bio: <%= @personality.bio%></p>
+			<p>price: <%= @personality.price_per_day %></p>
+		</div>
+
+		<div class="image-and-stars-and-buttons">
+			<div class="image">
+				<img class="personality-image"src=<%= @personality.picture%> alt="person photo">
+			</div>
+			<div class="stars-and-buttons">
+				<p><i <i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i></p>
+				<a href="" class="btn btn-green"> BOOK NOW </a>
+			</div>
+		</div>
+	</div>
+		<div class="personality-of">
+			<div class="real-identity">
+				<p><%= @personality.first_name %> <%= @personality.last_name %> is a fake personality of <%= @personality.user.first_name%></p>
+			</div>
+			<div class="other-personalities">
+				<%= @user.first_name %>
+				<%= @user.last_name %>
+				<p></p>
+				<% raise %>
+				<% @personalities.each do |personality| %>
+				<%= personality.first_name %>
+				<% end %>
+			</div>	
+		</div>
+</div>

@@ -1,0 +1,17 @@
+.info-image{
+	display: flex;
+}
+
+.image-and-stars-and-buttons{
+	display: flex;
+	flex-direction: column;
+	text-align:center;
+}
+
+.personality-image{
+	border-radius: 8px;
+}
+
+.stars-pink{
+	color: $pink;
+}
