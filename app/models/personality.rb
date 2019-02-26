@@ -9,4 +9,5 @@ class Personality < ApplicationRecord
   validates :price_per_day, numericality: { greater_than_or_equal_to: 1 }
   validates :desired_age, numericality: { greater_than_or_equal_to: 18 }
   validates :desired_gender, inclusion: { in: ["male", "female", "other"] }
+
 end

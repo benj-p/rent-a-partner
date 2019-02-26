@@ -1,6 +1,20 @@
 <div class="container">
   <h2>All Personalities</h2>
   <%= link_to "New personality", new_personality_path %>
+  <div class="filter"></div>
+    <%= form_tag("/personalities", method: "get") do %>
+      <%= label_tag(:q, "Search for:") %>
+      <%= text_field_tag(:q) %>
+      <%= label_tag(:gender, "Gender:") %>
+      <%= select_tag(:gender, options_for_select([['Male', 1], ['Female', 2], ['Other', 3]]))
+       %>
+      <%= label_tag(:price_per_day, "Price") %>
+      <%= select_tag(:price_per_day, options_for_select([['£1 - £19', 1], ['£20 - £49', 2], ['£50 - £100', 3], ['£100 +', 4]]))
+       %>
+      <%= date_select :person, :birth_date %>
+      <%= submit_tag("Search") %>
+    <% end %>
+
   <div class="cards-grid">
 
     <% @personalities.each do |personality| %>
