@@ -1,6 +1,8 @@
 <div class="container">
   <h2>All Personalities</h2>
-  <%= link_to "New personality", new_personality_path %>
+  <% if policy(Personality.new).create? %>
+    <%= link_to "New personality", new_personality_path %>
+  <% end %>
   <div class="cards-grid">
 
     <% @personalities.each do |personality| %>
