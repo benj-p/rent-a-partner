@@ -14,7 +14,7 @@ class PersonalityPolicy < ApplicationPolicy
   end
 
   def create?
-    true # to be updated once Partner is added to user model
+    user.is_partner
   end
 
   def update?
