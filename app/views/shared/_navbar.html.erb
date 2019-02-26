@@ -7,8 +7,8 @@
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Host</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Trips</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Personalities</a>
+    <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
     <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
 
     <!-- Profile picture with dropdown list -->
@@ -18,7 +18,7 @@
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li><a href="#">Profile</a></li>
           <li><a href="#">Dashboard</a></li>
-          <li><a href="#">Log Out</a></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
         </ul>
       </div>
     </div>
