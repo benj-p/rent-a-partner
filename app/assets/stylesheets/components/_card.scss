@@ -57,4 +57,25 @@
 
 a:hover{
   text-decoration: none;
+
+.booking-card {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgb(200,200,200);
+  padding: 16px 16px;
+  background-color: rgba(220,220,220,0.5);
+  .big-avatar {
+    margin-right: 16px;
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  p {
+    margin: 0;
+    padding: 4px 0;
+  }
+}
+
+.booking-card-details {
+  flex-grow: 1;
 }

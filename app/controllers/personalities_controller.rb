@@ -1,21 +1,25 @@
 class PersonalitiesController < ApplicationController
   before_action :set_personality, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @personalities = Personality.all
+    @personalities = policy_scope(Personality)
   end
 
   def show
+    authorize @personality
   end
 
   def new
     @personality = Personality.new
+    authorize @personality
   end
 
   def create
     @personality = Personality.new(personality_params)
     @personality.user = current_user
-    if @personality.saves
+    authorize @personality
+    if @personality.save
       redirect_to personality_path(@personality)
     else
       render :new
@@ -23,6 +27,7 @@ class PersonalitiesController < ApplicationController
   end
 
   def edit
+    authorize @personality
   end
 
   def update
@@ -42,5 +47,4 @@ class PersonalitiesController < ApplicationController
   def personality_params
     params.require(:personality).permit(:first_name, :last_name, :bio, :desired_gender, :desired_age, :picture, :price_per_day)
   end
-
 end

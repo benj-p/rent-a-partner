@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -17,15 +19,12 @@ class User < ApplicationRecord
 
   before_save :capitalize_name
 
+  GENDER = ["male", "female", "other"]
+  AGE = (18..99).to_a
+
   def capitalize_name
     first_name.capitalize!
     last_name.capitalize!
   end
 
-  def email_required?
-    false
-  end
-  def email_changed?
-    false
-  end
 end
