@@ -1,1 +1,15 @@
-<h1>hi</h1>
+<div class="container">
+  <h2>Hi <%= @user.first_name %></h2>
+
+  <h3>You've booked the following dates</h3>
+  <% @user.bookings.each do |booking| %>
+    <div class="booking-card">
+      <img src="<%= booking.personality.picture %>" alt="" class="big-avatar">
+      <div class="booking-card-details">
+        <p><strong>When?</strong> <%= booking.date %></p>
+        <p><strong>With who?</strong> <%= link_to booking.personality.first_name + " " + booking.personality.last_name, personality_path(booking.personality) %></p>
+      </div>
+      <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+    </div>
+  <% end %>
+</div>
