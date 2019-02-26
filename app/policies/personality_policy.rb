@@ -14,7 +14,7 @@ class PersonalityPolicy < ApplicationPolicy
   end
 
   def create?
-    user.is_partner
+    user.is_partner if user
   end
 
   def update?
