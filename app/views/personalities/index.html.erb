@@ -1,16 +1,6 @@
-<div class="banner">
-  <div class="container">
-    <h1>Choose your flavour</h1>
-    <p>Find your perfect date for any occassion</p>
-
-    <div class="form-container">
-
-    </div>
-  </div>
-</div>
-
 <div class="container">
-  <h2>Featured Personalities</h2>
+  <h2>All Personalities</h2>
+  <%= link_to "New personality", new_personality_path %>
   <div class="cards-grid">
 
     <% @personalities.each do |personality| %>
@@ -19,7 +9,7 @@
           <div class="card-badge"><p>£25 per night</p></div>
         </div>
         <div class="card-info">
-          <h3><%= personality.first_name %></h3>
+          <h3><%= link_to personality.first_name, personality_path(personality) %></h3>
           <p><%= personality.user.age %> years old</p>
         </div>
         <div class="card-ratings">
