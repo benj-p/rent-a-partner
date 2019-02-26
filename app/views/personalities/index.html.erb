@@ -1,6 +1,7 @@
 <div class="container">
   <h2>All Personalities</h2>
 
+
   <div class="filter">
     <%= form_tag("/personalities", method: "get") do %>
       <%= label_tag(:q, "Search for") %>
@@ -20,7 +21,12 @@
     <% end %>
   </div>
 
-  <%= link_to "New personality", new_personality_path %>
+
+
+
+  <% if policy(Personality.new).create? %>
+    <%= link_to "New personality", new_personality_path %>
+  <% end %>
 
   <div class="cards-grid">
 
