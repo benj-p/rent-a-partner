@@ -1,8 +1,8 @@
-<div style="display: flex; align-items: center; justify-content: left; flex-wrap: wrap;">
+<div class="cards-grid">
   <% @personalities.each do |personality| %>
     <%= link_to personality_path(personality) do %>
       <div class="card-container">
-        <div class="card-img" style="background-image: url(<%= personality.picture %>)">
+        <div class="card-img" style="background-image: url(<%= cl_image_path personality.picture %>)">
           <div class="card-badge"><p><strong><%= personality.price_per_day%>£</strong>  per day</p></div>
         </div>
         <div class="card-info">
@@ -19,6 +19,6 @@
           </p>
         </div>
       </div>
-    <% end %> 
+    <% end %>
   <% end %>
 </div>

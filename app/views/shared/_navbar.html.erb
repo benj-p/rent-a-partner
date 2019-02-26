@@ -10,11 +10,11 @@
     <% if current_user %>
 
       <% unless current_user.is_partner %>
-        <a href="#" class="navbar-wagon-item navbar-wagon-link">Become a partner</a>
+        <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
       <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
+      <%= link_to "Bookings", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
       <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
 
       <!-- Profile picture with dropdown list -->
@@ -42,7 +42,7 @@
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li><a href="#">Host</a></li>
         <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+        <li><a href="#">Messages</a></li>
       </ul>
     </div>
   </div>
