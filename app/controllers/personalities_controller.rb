@@ -3,7 +3,7 @@ class PersonalitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @personalities = policy_scope(Personality)
+    @personalities = policy_scope(Personality.match_search_terms(params[:q]))
   end
 
   def show
@@ -40,6 +40,7 @@ class PersonalitiesController < ApplicationController
 
   private
 
+  def
   def set_personality
     @personality = Personality.find(params[:id])
   end

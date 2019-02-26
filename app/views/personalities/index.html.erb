@@ -1,7 +1,7 @@
 <div class="container">
   <h2>All Personalities</h2>
-  <%= link_to "New personality", new_personality_path %>
-  <div class="filter"></div>
+
+  <div class="filter">
     <%= form_tag("/personalities", method: "get") do %>
       <%= label_tag(:q, "Search for:") %>
       <%= text_field_tag(:q) %>
@@ -14,6 +14,9 @@
       <%= date_select :person, :birth_date %>
       <%= submit_tag("Search") %>
     <% end %>
+  </div>
+
+  <%= link_to "New personality", new_personality_path %>
 
   <div class="cards-grid">
 
