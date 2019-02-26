@@ -5,7 +5,15 @@ class PersonalityPolicy < ApplicationPolicy
     end
   end
 
+  def show?
+    true
+  end
+
+  def index?
+    true
+  end
+
   def create?
-    return true
+    user
   end
 end
