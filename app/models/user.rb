@@ -15,7 +15,7 @@ class User < ApplicationRecord
   validates :age, :desired_age, numericality: { greater_than_or_equal_to: 18 }
   validates :gender, :desired_gender, inclusion: { in: ["male", "female", "other"] }
 
-  scope :gender, -> (gender) { where gender: gender }
+  scope :gender, -> (gender) { where gender: gender.downcase }
   scope :location, -> (location) { where location: location }
 
   before_save :capitalize_name

@@ -11,7 +11,7 @@ class Personality < ApplicationRecord
   validates :desired_gender, inclusion: { in: ["male", "female", "other"] }
 
   # scope :price_per_day, -> (price_per_day) { where price_per_day: price_per_day }
-  scope :match_search_terms, -> (query) { where("first_name LIKE ? OR last_name LIKE ? OR bio LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
+  scope :match_search_terms, -> (query) { where("personalities.first_name LIKE ? OR personalities.last_name LIKE ? OR personalities.bio LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
   scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present?}
   scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present?}
 end

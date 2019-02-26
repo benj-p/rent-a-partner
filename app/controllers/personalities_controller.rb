@@ -4,11 +4,12 @@ class PersonalitiesController < ApplicationController
 
   def index
     @personalities = policy_scope(Personality)
-      @locations_array = [nil]
-      @personalities.each do |personality|
-        @locations_array << personality.user.location
-      end
-    @personalities = policy_scope(Personality.match_search_terms(params[:q]).location(params[:location]))
+    @locations_array = [nil]
+    @personalities.each do |personality|
+      @locations_array << personality.user.location
+    end
+    @personalities = policy_scope(Personality.match_search_terms(params[:q])
+                    .location(params[:location]).gender(params[:gender]))
   end
 
   def show

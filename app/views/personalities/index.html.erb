@@ -6,11 +6,11 @@
       <%= label_tag(:q, "Search for") %>
       <%= text_field_tag(:q) %>
       <%= label_tag(:gender, "Gender") %>
-      <%= select_tag(:gender, options_for_select([nil, ['Male', 1], ['Female', 2], ['Other', 3]]))
+      <%= select_tag(:gender, options_for_select([nil, 'Male', 'Female', 'Other']))
        %>
       <%= label_tag(:price_per_day, "Price") %>
       <%= select_tag(:price_per_day, options_for_select([nil, ['£1 - £19', 1], ['£20 - £49', 2], ['£50 - £100', 3], ['£100 +', 4]]))
-       %>
+       %> <br>
       <%= label_tag(:location, "Location") %>
       <%= select_tag(:location, options_for_select(@locations_array.uniq))
        %>
