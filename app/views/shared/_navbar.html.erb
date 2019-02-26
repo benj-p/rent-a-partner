@@ -9,24 +9,29 @@
 
     <% if current_user %>
 
-    <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+      <% unless current_user.is_partner %>
+        <a href="#" class="navbar-wagon-item navbar-wagon-link">Become a partner</a>
+      <% end %>
 
-    <!-- Profile picture with dropdown list -->
-    <div class="navbar-wagon-item">
-      <div class="dropdown">
-        <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-          <li><a href="#">Profile</a></li>
-          <li><a href="#">Dashboard</a></li>
-          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
-        </ul>
+      <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Bookings</a>
+      <a href="" class="navbar-wagon-item navbar-wagon-link">Messages</a>
+
+      <!-- Profile picture with dropdown list -->
+      <div class="navbar-wagon-item">
+        <div class="dropdown">
+          <img src="https://kitt.lewagon.com/placeholder/users/ssaunier" class="avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
+          <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Dashboard</a></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
+          </ul>
+        </div>
       </div>
-    </div>
 
     <% else %>
-      <%= link_to "Sign in", new_user_session_path %>
+      <span><%= link_to "Sign up", new_user_registration_path %> ||
+      <%= link_to "Sign in", new_user_session_path %></span>
     <% end %>
   </div>
 

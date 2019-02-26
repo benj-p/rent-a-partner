@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
@@ -15,17 +17,17 @@ class User < ApplicationRecord
   validates :age, :desired_age, numericality: { greater_than_or_equal_to: 18 }
   validates :gender, :desired_gender, inclusion: { in: ["male", "female", "other"] }
 
+  scope :gender, -> (gender) { where gender: gender.downcase }
+  scope :location, -> (location) { where location: location }
+
   before_save :capitalize_name
+
+  GENDER = ["male", "female", "other"]
+  AGE = (18..99).to_a
 
   def capitalize_name
     first_name.capitalize!
     last_name.capitalize!
   end
 
-  def email_required?
-    false
-  end
-  def email_changed?
-    false
-  end
 end

@@ -1,28 +1,28 @@
 <div class="container">
   <h2>All Personalities</h2>
-  <%= link_to "New personality", new_personality_path %>
-  <div class="cards-grid">
 
-    <% @personalities.each do |personality| %>
-      <div class="card-container">
-        <div class="card-img" style="background-image: url(<%= personality.picture %>)">
-          <div class="card-badge"><p>£25 per night</p></div>
-        </div>
-        <div class="card-info">
-          <h3><%= link_to personality.first_name, personality_path(personality) %></h3>
-          <p><%= personality.user.age %> years old</p>
-        </div>
-        <div class="card-ratings">
-          <p>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
-        </div>
-      </div>
+  <div class="filter">
+    <%= form_tag("/personalities", method: "get") do %>
+      <%= label_tag(:q, "Search for") %>
+      <%= text_field_tag(:q) %>
+      <%= label_tag(:gender, "Gender") %>
+      <%= select_tag(:gender, options_for_select([nil, 'Male', 'Female', 'Other']))
+       %>
+      <%= label_tag(:price_per_day, "Price") %>
+      <%= select_tag(:price_per_day, options_for_select([nil, ['£1 - £19', 1], ['£20 - £49', 2], ['£50 - £100', 3], ['£100 +', 4]]))
+       %> <br>
+      <%= label_tag(:location, "Location") %>
+      <%= select_tag(:location, options_for_select(@locations_array.uniq))
+       %>
+      <%= label_tag(:date, "Date") %>
+      <%= date_select :person, :date %>
+      <%= submit_tag("Search") %>
     <% end %>
-
   </div>
+
+  <% if policy(Personality.new).create? %>
+    <%= link_to "New personality", new_personality_path %>
+  <% end %>
+  <%= render 'shared/cards-display' %>
+
 </div>
