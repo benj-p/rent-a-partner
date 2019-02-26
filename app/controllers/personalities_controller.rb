@@ -1,5 +1,5 @@
 class PersonalitiesController < ApplicationController
-  before_action :set_personality, only: [:show, :edit, :update]
+  before_action :set_personality, only: [:show, :edit, :update, :destroy]
 
   def index
     @personalities = Personality.all
@@ -26,6 +26,11 @@ class PersonalitiesController < ApplicationController
   end
 
   def update
+    #TODO
+  end
+
+  def destroy
+    #TODO
   end
 
   private
