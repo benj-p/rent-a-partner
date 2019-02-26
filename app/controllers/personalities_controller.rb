@@ -1,5 +1,6 @@
 class PersonalitiesController < ApplicationController
   before_action :set_personality, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
     @personalities = Personality.all
@@ -42,5 +43,4 @@ class PersonalitiesController < ApplicationController
   def personality_params
     params.require(:personality).permit(:first_name, :last_name, :bio, :desired_gender, :desired_age, :picture, :price_per_day)
   end
-
 end
