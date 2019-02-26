@@ -1,6 +1,6 @@
 class Personality < ApplicationRecord
   belongs_to :user
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
 
   validates :first_name, :last_name, :picture,
             :desired_gender, :desired_age, :bio, :price_per_day, presence: true
