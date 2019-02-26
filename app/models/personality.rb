@@ -9,4 +9,9 @@ class Personality < ApplicationRecord
   validates :price_per_day, numericality: { greater_than_or_equal_to: 1 }
   validates :desired_age, numericality: { greater_than_or_equal_to: 18 }
   validates :desired_gender, inclusion: { in: ["male", "female", "other"] }
+
+  # scope :price_per_day, -> (price_per_day) { where price_per_day: price_per_day }
+  scope :match_search_terms, -> (query) { where("personalities.first_name LIKE ? OR personalities.last_name LIKE ? OR personalities.bio LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
+  scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present?}
+  scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present?}
 end
