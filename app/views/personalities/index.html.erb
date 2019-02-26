@@ -1,30 +1,9 @@
 <div class="container">
   <h2>All Personalities</h2>
+
   <% if policy(Personality.new).create? %>
     <%= link_to "New personality", new_personality_path %>
   <% end %>
-  <div class="cards-grid">
-
-    <% @personalities.each do |personality| %>
-      <div class="card-container">
-        <div class="card-img" style="background-image: url(<%= personality.picture %>)">
-          <div class="card-badge"><p>£25 per night</p></div>
-        </div>
-        <div class="card-info">
-          <h3><%= link_to personality.first_name, personality_path(personality) %></h3>
-          <p><%= personality.user.age %> years old</p>
-        </div>
-        <div class="card-ratings">
-          <p>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-            <i class="fas fa-star"></i>
-          </p>
-        </div>
-      </div>
-    <% end %>
-
-  </div>
+  <%= render 'shared/cards-display' %>
+  
 </div>
