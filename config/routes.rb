@@ -6,5 +6,5 @@ Rails.application.routes.draw do
       resources :booking, only: [:new, :create]
     end
   end
-  resources :personalities, only: [:index, :new, :create, :show]
+  resources :personalities, only: [:index, :new, :create, :show, :edit]
 end
