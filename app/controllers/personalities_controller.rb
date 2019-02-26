@@ -18,6 +18,8 @@ class PersonalitiesController < ApplicationController
 
   def show
     authorize @personality
+    @user = @personality.user
+    @personalities = @user.personalities
   end
 
   def new

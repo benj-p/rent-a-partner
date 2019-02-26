@@ -1,0 +1,33 @@
+.info-image{
+	display: flex;
+}
+
+.image-and-stars-and-buttons{
+	display: flex;
+	flex-direction: column;
+	text-align:center;
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.personality-image{
+	border-radius: 8px;
+	height: 300px;
+}
+
+.stars-pink{
+	color: $pink;
+}
+
+.personality-of{
+	display: flex;
+	justify-content: space-between;
+}
+
+.other-personalities{
+	img {
+		height: 50px;
+		width: 50px;
+		object-fit: cover;
+	}
+}
