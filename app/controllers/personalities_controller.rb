@@ -3,19 +3,22 @@ class PersonalitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @personalities = Personality.all
+    @personalities = policy_scope(Personality)
   end
 
   def show
+    authorize @personality
   end
 
   def new
     @personality = Personality.new
+    authorize @personality
   end
 
   def create
     @personality = Personality.new(personality_params)
     @personality.user = current_user
+    authorize @personality
     if @personality.save
       redirect_to personality_path(@personality)
     else
@@ -24,6 +27,7 @@ class PersonalitiesController < ApplicationController
   end
 
   def edit
+    authorize @personality
   end
 
   def update
