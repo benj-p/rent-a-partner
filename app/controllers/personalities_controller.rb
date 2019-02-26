@@ -1,7 +1,11 @@
 class PersonalitiesController < ApplicationController
+  before_action :set_personality, only: [:show, :edit, :update]
 
   def index
     @personalities = Personality.all
+  end
+
+  def show
   end
 
   def new
@@ -19,11 +23,9 @@ class PersonalitiesController < ApplicationController
   end
 
   def edit
-
   end
 
   def update
-
   end
 
   private
