@@ -1,7 +1,7 @@
     <% @personalities.each do |personality| %>
       <div class="card-container">
         <div class="card-img" style="background-image: url(<%= personality.picture %>)">
-          <div class="card-badge"><p><%= personality.price_per_day %></p></div>
+          <div class="card-badge"><p><strong><%= personality.price_per_day%>£</strong>  per day</p></div>
         </div>
         <div class="card-info">
           <h3><%= personality.first_name %></h3>
