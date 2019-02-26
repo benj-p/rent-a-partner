@@ -1,11 +1,39 @@
-<%= simple_form_for personality do |f| %>
-  <%= f.input :first_name %>
-  <%= f.input :last_name %>
-  <%= f.input :bio %>
-  <%= f.input :desired_gender %>
-  <%= f.input :desired_age %>
-  <%= f.input :picture %>
-  <%= f.input :price_per_day %>
-  <%= f.submit "Add personaility" %>
-<% end %>
+<div class="row">
+  <%= simple_form_for personality do |f| %>
+    <div class="col-md-12">
+      <h2>Basic Details</h2>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= f.input :first_name, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-12 col-md-6">
+      <%= f.input :last_name, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-md-12">
+      <%= f.input :bio, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-md-12">
+      <h2>More info</h2>
+    </div>
+    <div class="col-12 col-md-4">
+      <%= f.input :desired_gender, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-12 col-md-4">
+      <%= f.input :desired_age, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-12 col-md-4">
+      <%= f.input :price_per_day, wrapper_html: { class: 'rap-input' } %>
+    </div>
+    <div class="col-md-12">
+      <h2>Add a Picture</h2>
+    </div>
+    <div class="col-md-12">
+      <%= f.input :picture %>
+      <%= f.input :picture_cache, as: :hidden %>
+    </div>
+    <div class="col-md-12">
+      <%= f.submit "Add personaility", class: "btn btn-green" %>
+    </div>
+  <% end %>
+</div>
 
