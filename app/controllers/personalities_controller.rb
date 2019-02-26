@@ -26,6 +26,7 @@ class PersonalitiesController < ApplicationController
   end
 
   def edit
+    authorize @personality
   end
 
   def update
