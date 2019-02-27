@@ -16,7 +16,7 @@
 
 		<div class="image-and-stars-and-buttons">
 			<div class="image">
-				<img class="personality-image"src=<%= @personality.picture%> alt="person photo">
+				<%= cl_image_tag(@personality.picture, width: 400, height: 300, crop: :fill, gravity: :face, class: "img-rounded") %>
 			</div>
 			<div class="stars-and-buttons">
 				<p><i <i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i></p>
@@ -30,11 +30,18 @@
 			</div>
 			<div class="other-personalities">
 				<% if @personalities.count > 1 %>
-					<p>Those are Ben's other personalities:</p>
-					<% @personalities.each do |personality| %>
-						<% next if personality == @personality   %>
-						<%= cl_image_tag personality.picture%>
+					<p>Those are <%=@personality.first_name%>'s other personalities:</p>
+					<div class="perso-flex">
+						<% @personalities.each do |personality| %>
+						<div class="personality">
+							<%= link_to personality_path(personality) do %>
+							<% next if personality == @personality   %>
+							<%= cl_image_tag personality.picture%>
+							<p> <%= personality.first_name %> </p>
+							<% end %>
+						</div>
 					<% end %>
+					</div>
 				<% else %>
 					<p>This is  <%= @personality.user.first_name%>'s only personality</p>
 				<% end %>
