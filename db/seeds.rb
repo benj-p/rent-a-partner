@@ -5,29 +5,37 @@ User.destroy_all
 Booking.destroy_all
 Personality.destroy_all
 
-user_1 = User.create({email: "izzyweber@gmail.com", password: "secret", first_name: "Izzy",
+user_1 = User.new({email: "izzyweber@gmail.com", password: "secret", first_name: "Izzy",
                   last_name: "Weber", location: "London", age: 29, gender: "female",
-                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "male", bio: "Hi, I'm Izzy. I'm American and like to code - and I really need a date to my mom's
                   wedding in June!! You'd get a free trip to Boston and lodging for a week on the North Shore.", is_partner: false})
+url = "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg"
+user_1.remote_picture_url = url
+user_1.save
 
-user_2 = User.create({email: "asdsda@gmail.com", password: "secret", first_name: "Ben",
+user_2 = User.new({email: "asdsda@gmail.com", password: "secret", first_name: "Ben",
                   last_name: "Pham", location: "Paris", age: 29, gender: "male",
-                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "female", bio: "Hi, I'm Ben. I'm French and starting my own business so I need extra cash. I
                   particularly love going to weddings! Don't worry, my girlfriend is cool with this.", is_partner: true})
+url = "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg"
+user_2.remote_picture_url = url
+user_2.save
 
-user_3 = User.create({email: "jonnygates@outlook.com", password: "secret", first_name: "Jonny",
+user_3 = User.new({email: "jonnygates@outlook.com", password: "secret", first_name: "Jonny",
                   last_name: "Gates", location: "London", age: 29, gender: "male",
-                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 22, desired_gender: "female", bio: "Hi, I'm Jonny! I drink a lot and I'm really friendly, so I'm a great person to bring
                   to work functions.", is_partner: false})
+url = "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg"
+user_3.remote_picture_url = url
+user_3.save
 
-user_4 = User.create({email: "leticia@aol.com", password: "secret", first_name: "Leti",
+user_4 = User.new({email: "leticia@aol.com", password: "secret", first_name: "Leti",
                   last_name: "Ackaouy", location: "London", age: 22, gender: "female",
-                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "male", bio: "Hi, I'm Leti! I'm super young and fun. I have steez. Just FYI, I'm vegan, so please don't
                   bring me to events where the only food is bacon-wrapped figs thx!!", is_partner: true})
+url = "https://ki.se/sites/default/files/styles/adaptive/public/digis_jessica.jpg"
+user_4.remote_picture_url = url
+user_4.save
 
 ben_1 = Personality.new(first_name: "François", last_name: "Le Français", bio: "I'm the ultimate french guy: heavy smoker, snail eater and quite rude. On the positive side, I'm a very sophistaced eater and very passionate about arts.", desired_gender: "female", desired_age: 50, price_per_day: 35)
 url = "https://i.redd.it/sifmpfgly0611.jpg"

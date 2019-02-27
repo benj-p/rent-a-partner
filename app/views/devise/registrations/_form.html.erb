@@ -30,6 +30,7 @@
       </div>
       <div class="col-md-12">
         <%= f.input :picture, required: true, hint: "Please provide a URL" %>
+        <%= f.input :picture_cache, as: :hidden %>
       </div>
       <div class="col-md-12">
       <%= f.button :submit, "Sign up", class: "btn-green" %>
