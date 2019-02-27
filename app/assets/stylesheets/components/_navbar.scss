@@ -75,3 +75,13 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.logo-pink {
+  font-size: 24px;
+  color: $pink;
+  transition: 0.5s;
+  &:hover {
+    color: $pink;
+    opacity: 0.5;
+  }
+}
