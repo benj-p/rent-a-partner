@@ -47,7 +47,7 @@
 		</div>
 
     <%= simple_form_for [@personality, @booking] do |f| %>
-          <%= f.input :date %>
+          <%= f.input :date, as: :string, input_html: {value: params[:date]} %>
           <%= f.submit "Book now", class: "btn btn-primary" %>
     <% end %>
 </div>
