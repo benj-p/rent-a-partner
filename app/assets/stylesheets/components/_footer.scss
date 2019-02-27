@@ -4,3 +4,15 @@
   color: #fff;
   margin-top: 16px;
 }
+
+.social {
+  a {
+    color: #fff;
+    font-size: 48px;
+    margin-right: 16px;
+    transition: 0.3s;
+  }
+  a:hover {
+    opacity: 0.5;
+  }
+}
