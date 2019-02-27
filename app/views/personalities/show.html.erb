@@ -38,6 +38,11 @@
 				<% else %>
 					<p>This is  <%= @personality.user.first_name%>'s only personality</p>
 				<% end %>
-			</div>	
+			</div>
 		</div>
+
+    <%= simple_form_for [@personality, @booking] do |f| %>
+          <%= f.input :date %>
+          <%= f.submit "Book now", class: "btn btn-primary" %>
+    <% end %>
 </div>
