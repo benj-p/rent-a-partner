@@ -13,7 +13,7 @@ class PersonalitiesController < ApplicationController
       @locations_array << personality.user.location
     end
     @personalities = policy_scope(Personality.match_search_terms(params[:q])
-                    .location(params[:location]).gender(params[:gender]))
+                    .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i))
   end
 
   def show
