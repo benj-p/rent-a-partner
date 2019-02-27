@@ -5,8 +5,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.personality = @personality
+    authorize @booking
     if @booking.save
-      redirect_to dashboard_user(current_user)
+      redirect_to dashboard_user_path(current_user)
     else
       render template: "personalities/show"
     end

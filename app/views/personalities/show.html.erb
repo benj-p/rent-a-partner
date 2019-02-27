@@ -41,9 +41,8 @@
 			</div>
 		</div>
 
-    <%= simple_form_for [@personality, @booking], html: { class: "dose-form"} do |f| %>
-          <%= f.association :ingredient, selected: 1, input_html: { class: "select2" } %>
-          <%= f.input :description, placeholder: '4 cl (example)' %>
-          <%= f.submit "Submit", class: "btn btn-primary" %>
+    <%= simple_form_for [@personality, @booking] do |f| %>
+          <%= f.input :date %>
+          <%= f.submit "Book now", class: "btn btn-primary" %>
     <% end %>
 </div>
