@@ -1,7 +1,7 @@
  <div class="navbar-wagon">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
-    R <i class="fas fa-heart"></i> P
+  <a href="/" class="navbar-wagon-brand logo-pink">
+    R <i class="far fa-heart fa-rotate-180"></i> P
   </a>
 
   <!-- Right Navigation -->
@@ -31,8 +31,8 @@
       </div>
 
     <% else %>
-      <span><%= link_to "Sign up", new_user_registration_path %> ||
-      <%= link_to "Sign in", new_user_session_path %></span>
+      <span><%= link_to "Sign up", new_user_registration_path, class: 'btn btn-green' %>
+      <%= link_to "Sign in", new_user_session_path, class: 'btn btn-grey' %></span>
     <% end %>
   </div>
 
