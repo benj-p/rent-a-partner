@@ -1,7 +1,7 @@
  <div class="navbar-wagon">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <img src="images/logo.png" alt="logo">
+    R <i class="fas fa-heart"></i> P
   </a>
 
   <!-- Right Navigation -->
@@ -10,7 +10,7 @@
     <% if current_user %>
 
       <% unless current_user.is_partner %>
-        <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Become a partner", new_personality_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
       <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -41,9 +41,19 @@
     <div class="dropdown">
       <i class="fas fa-bars dropdown-toggle" data-toggle="dropdown" role="button"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messages</a></li>
+        <% if current_user %>
+          <li>
+            <% unless current_user.is_partner %>
+              <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
+            <% end %>
+          </li>
+          <li><%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Bookings", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
+        <% else %>
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+        <% end %>
       </ul>
     </div>
   </div>

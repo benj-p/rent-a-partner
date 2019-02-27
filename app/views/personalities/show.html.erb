@@ -19,8 +19,6 @@
 				<%= cl_image_tag(@personality.picture, width: 400, height: 300, crop: :fill, gravity: :face, class: "img-rounded") %>
 			</div>
 			<div class="stars-and-buttons">
-				<p><i <i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i><i class="fas fa-star stars-pink"></i></p>
-				<a href="" class="btn btn-green"> BOOK NOW </a>
 			</div>
 		</div>
 	</div>
@@ -45,6 +43,11 @@
 				<% else %>
 					<p>This is  <%= @personality.user.first_name%>'s only personality</p>
 				<% end %>
-			</div>	
+			</div>
 		</div>
+
+    <%= simple_form_for [@personality, @booking] do |f| %>
+          <%= f.input :date %>
+          <%= f.submit "Book now", class: "btn btn-primary" %>
+    <% end %>
 </div>

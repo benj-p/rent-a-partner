@@ -58,6 +58,9 @@ a:hover{
   text-decoration: none;
 }
 
+.booking-card-container {
+}
+
 .booking-card {
   display: flex;
   align-items: center;
@@ -67,12 +70,12 @@ a:hover{
   .big-avatar {
     margin-right: 16px;
   }
-  &:last-child {
-    border-bottom: none;
-  }
   p {
     margin: 0;
     padding: 4px 0;
+  }
+  &:last-child {
+    border-bottom: none;
   }
 }
 

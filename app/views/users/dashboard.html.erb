@@ -1,15 +1,35 @@
 <div class="container">
-  <h2>Hi <%= @user.first_name %></h2>
+  <h2>Hi <%= @user.first_name %>, this is your dashboard</h2>
 
-  <h3>You've booked the following dates</h3>
-  <% @user.bookings.each do |booking| %>
-    <div class="booking-card">
-      <img src="<%= booking.personality.picture %>" alt="" class="big-avatar">
-      <div class="booking-card-details">
-        <p><strong>When?</strong> <%= booking.date %></p>
-        <p><strong>With who?</strong> <%= link_to booking.personality.first_name + " " + booking.personality.last_name, personality_path(booking.personality) %></p>
-      </div>
-      <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+  <h3>Your bookings</h3>
+  <% if @user.bookings.empty? %>
+    <p>You don't have any bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
+  <% else %>
+        <div class="booking-card-container">
+      <% @user.bookings.each do |booking| %>
+        <div class="booking-card">
+          <img src="<%= booking.personality.picture %>" alt="" class="big-avatar">
+          <div class="booking-card-details">
+            <p><strong>When?</strong> <%= booking.date %></p>
+            <p><strong>With who?</strong> <%= link_to booking.personality.first_name + " " + booking.personality.last_name, personality_path(booking.personality) %></p>
+          </div>
+          <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+        </div>
+      <% end %>
     </div>
+  <% end %>
+
+  <% if @user.is_partner == false %>
+    <h3>Want to become a partner?</h3>
+      <p>Your profile just allows you to book dates with personalities for now. If you want to become datable as well, click on the below button to become a partner and create your first personality.</p>
+    <%= link_to "Become a partner", new_personality_path(partner: true), class: "btn btn-green" %>
+  <% else %>
+    <h3>Your personalities</h3>
+    <% if @user.personalities.empty? %>
+      <p>You don't have any personalities yet, you should <%= link_to "create your first one", personalities_path %> for others to find you. 😎</p>
+    <% else %>
+      <% @personalities = @user.personalities %>
+      <%= render 'shared/cards-display' %>
+    <% end %>
   <% end %>
 </div>

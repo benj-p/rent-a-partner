@@ -3,26 +3,30 @@ class PersonalitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:partner] == "true"
-      current_user.update(is_partner: true)
-      flash.notice = "Congrats! You're now a partner, you can start adding personalities."
-    end
     @personalities = policy_scope(Personality)
     @locations_array = [nil]
+    if params[:person]
+      @date = Date.new(params[:person]['date(1i)'].to_i, params[:person]['date(2i)'].to_i, params[:person]['date(3i)'].to_i)
+    end
     @personalities.each do |personality|
       @locations_array << personality.user.location
     end
     @personalities = policy_scope(Personality.match_search_terms(params[:q])
-                    .location(params[:location]).gender(params[:gender]))
+                    .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i))
   end
 
   def show
     authorize @personality
     @user = @personality.user
     @personalities = @user.personalities
+    @booking = Booking.new
   end
 
   def new
+    if params[:partner] == "true"
+      current_user.update(is_partner: true)
+      flash.notice = "Congrats! You're now a partner, you can start adding personalities."
+    end
     @personality = Personality.new
     authorize @personality
   end
