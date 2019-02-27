@@ -1,35 +1,38 @@
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :first_name,
-                required: true,
-                input_html: { autocomplete: "first_name" } %>
-    <%= f.input :last_name,
-                required: true,
-                input_html: { autocomplete: "last_name" } %>
-    <%= f.input :location %>
-    <%= f.input :age, collection: User::AGE %>
-    <%= f.input :desired_age, label: 'Desired partner\'s age', collection: User::AGE %>
-    <%= f.input :gender, collection: User::GENDER %>
-    <%= f.input :desired_gender, label: 'Desired partner\'s gender', collection: User::GENDER %>
-    <%= f.input :picture, required: true, hint: "Please provide a URL" %>
-    <%= f.input :bio, required: true, hint: "100 characters minimum" %>
-
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up", class: "btn-green" %>
-  </div>
-<% end %>
+<div class="row">
+  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+      <div class="col-12 col-md-4">
+        <%= f.input :email, required: true, autofocus: true, input_html: { autocomplete: "email" }%>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" } %>
+      </div>
+      <div class="col-12 col-md-6">
+        <%= f.input :first_name, required: true, input_html: { autocomplete: "first_name" } %>
+      </div>
+      <div class="col-12 col-md-6">
+        <%= f.input :last_name, required: true, input_html: { autocomplete: "last_name" } %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.input :gender, collection: User::GENDER %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.input :age, collection: User::AGE %>
+      </div>
+      <div class="col-12 col-md-4">
+        <%= f.input :location %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :bio, required: true, hint: "100 characters minimum" %>
+      </div>
+      <div class="col-md-12">
+        <%= f.input :picture, required: true, hint: "Please provide a URL" %>
+      </div>
+      <div class="col-md-12">
+      <%= f.button :submit, "Sign up", class: "btn-green" %>
+      </div>
+  <% end %>
+</div>
