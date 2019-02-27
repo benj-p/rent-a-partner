@@ -1,6 +1,6 @@
 <div class="cards-grid">
   <% @personalities.each do |personality| %>
-    <%= link_to personality_path(personality) do %>
+    <%= link_to personality_path(personality, date: @date) do %>
       <div class="card-container">
         <div class="card-img" style="background-image: url(<%= cl_image_path personality.picture %>); background-size: cover; background-position: center;">
           <div class="card-badge"><p><strong><%= personality.price_per_day%>£</strong>  per day</p></div>
