@@ -12,7 +12,7 @@
         <%= select_tag(:location, options_for_select(@locations_array.uniq))
          %>
         <%= label_tag(:date, "Date") %>
-        <%= date_field_tag(:date, Date.today)%>
+        <%= date_field_tag(:date, Date.today, options = {min: Date.today()})%>
 
         <%= submit_tag("Search") %>
       <% end %>

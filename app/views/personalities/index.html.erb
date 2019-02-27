@@ -14,7 +14,7 @@
       <%= select_tag(:location, options_for_select(@locations_array.uniq))
        %>
       <%= label_tag(:date, "Date") %>
-      <%= date_field_tag(:date, @date) %>
+      <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
       <%= submit_tag("Search") %>
     <% end %>
   </div>
