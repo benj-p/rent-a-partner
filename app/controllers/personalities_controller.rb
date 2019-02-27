@@ -8,8 +8,13 @@ class PersonalitiesController < ApplicationController
     @personalities.each do |personality|
       @locations_array << personality.user.location
     end
+    @date_year = params[:person]["date(1i)"].to_i
+    @date_month = params[:person]["date(2i)"].to_i
+    @date_day = params[:person]["date(3i)"].to_i
+
     @personalities = policy_scope(Personality.match_search_terms(params[:q])
                     .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i))
+
   end
 
   def show
