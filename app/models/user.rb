@@ -23,6 +23,7 @@ class User < ApplicationRecord
 
   scope :gender, -> (gender) { where gender: gender.downcase }
   scope :location, -> (location) { where location: location }
+  scope :booked?, -> (year, month, day) { joins(:bookings).merge(Booking.booked?(year, month, day))}
 
   before_save :capitalize_name
 

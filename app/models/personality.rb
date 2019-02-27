@@ -25,4 +25,5 @@ class Personality < ApplicationRecord
   scope :match_search_terms, -> (query) { where("personalities.first_name ILIKE ? OR personalities.last_name ILIKE ? OR personalities.bio ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
   scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present?}
   scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present?}
+  scope :available, -> (year, month, day) {joins(:booking).merge(Booking.booked(year, month, day)) if day.present?}
 end
