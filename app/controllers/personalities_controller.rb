@@ -16,6 +16,7 @@ class PersonalitiesController < ApplicationController
     authorize @personality
     @user = @personality.user
     @personalities = @user.personalities
+    @booking = Booking.new
   end
 
   def new

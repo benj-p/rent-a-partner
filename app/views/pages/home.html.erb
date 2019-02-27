@@ -3,8 +3,18 @@
     <h1>Choose your flavour</h1>
     <p>Find your perfect date for any occassion</p>
 
-    <div class="form-container">
-
+    <div class="filter-home">
+      <%= form_tag("/personalities", method: "get") do %>
+        <%= label_tag(:gender, "Gender") %>
+        <%= select_tag(:gender, options_for_select([nil, 'Male', 'Female', 'Other']))
+         %>
+        <%= label_tag(:location, "Location") %>
+        <%= select_tag(:location, options_for_select(@locations_array.uniq))
+         %>
+        <%= label_tag(:date, "Date") %>
+        <%= date_select :person, :date %>
+        <%= submit_tag("Search") %>
+      <% end %>
     </div>
   </div>
 </div>

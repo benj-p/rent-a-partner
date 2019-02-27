@@ -22,9 +22,7 @@ class Personality < ApplicationRecord
       elsif price_level == 4
         where ("personalities.price_per_day BETWEEN 101 AND 9999999999")
       end }
-  #User.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight })
-  #price levels: ['£1 - £19', 1], ['£20 - £49', 2], ['£50 - £100', 3], ['£100 +', 4]]))
-  scope :match_search_terms, -> (query) { where("personalities.first_name LIKE ? OR personalities.last_name LIKE ? OR personalities.bio LIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
+  scope :match_search_terms, -> (query) { where("personalities.first_name ILIKE ? OR personalities.last_name ILIKE ? OR personalities.bio ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
   scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present?}
   scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present?}
 end
