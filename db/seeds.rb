@@ -7,25 +7,25 @@ Personality.destroy_all
 
 user_1 = User.create({email: "izzyweber@gmail.com", password: "secret", first_name: "Izzy",
                   last_name: "Weber", location: "London", age: 29, gender: "female",
-                  picture: "https://avatars1.githubusercontent.com/u/40670298?s=400&u=1548eda59e882bcc68d46407c5df2417f27c0ea8&v=4",
+                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "male", bio: "Hi, I'm Izzy. I'm American and like to code - and I really need a date to my mom's
                   wedding in June!! You'd get a free trip to Boston and lodging for a week on the North Shore.", is_partner: false})
 
 user_2 = User.create({email: "asdsda@gmail.com", password: "secret", first_name: "Ben",
                   last_name: "Pham", location: "Paris", age: 29, gender: "male",
-                  picture: "https://avatars2.githubusercontent.com/u/43788107?s=400&v=4",
+                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "female", bio: "Hi, I'm Ben. I'm French and starting my own business so I need extra cash. I
                   particularly love going to weddings! Don't worry, my girlfriend is cool with this.", is_partner: true})
 
 user_3 = User.create({email: "jonnygates@outlook.com", password: "secret", first_name: "Jonny",
                   last_name: "Gates", location: "London", age: 29, gender: "male",
-                  picture: "https://pbs.twimg.com/profile_images/773555456279244800/QdX6a723_400x400.jpg",
+                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 22, desired_gender: "female", bio: "Hi, I'm Jonny! I drink a lot and I'm really friendly, so I'm a great person to bring
                   to work functions.", is_partner: false})
 
 user_4 = User.create({email: "leticia@aol.com", password: "secret", first_name: "Leti",
                   last_name: "Ackaouy", location: "London", age: 22, gender: "female",
-                  picture: "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/28166255_159709798170868_9092395890873744565_n.jpg?_nc_cat=110&_nc_ht=scontent-lhr3-1.xx&oh=1d9a1028c4fad3c06b9e660e761ddd01&oe=5D1D8B8F",
+                  picture: "vqugs7t6aqnw7eej1ksp",
                   desired_age: 29, desired_gender: "male", bio: "Hi, I'm Leti! I'm super young and fun. I have steez. Just FYI, I'm vegan, so please don't
                   bring me to events where the only food is bacon-wrapped figs thx!!", is_partner: true})
 
