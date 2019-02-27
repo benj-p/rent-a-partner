@@ -4,25 +4,25 @@
       <h2>Basic Details</h2>
     </div>
     <div class="col-12 col-md-6">
-      <%= f.input :first_name, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :first_name, wrapper_html: { class: 'rap-input' }, placeholder: 'Kitty' %>
     </div>
     <div class="col-12 col-md-6">
-      <%= f.input :last_name, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :last_name, wrapper_html: { class: 'rap-input'}, placeholder: 'Mayo'  %>
     </div>
     <div class="col-md-12">
-      <%= f.input :bio, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :bio, wrapper_html: { class: 'rap-input' }, placeholder: 'Your bio must be between 100 and 500 characters.' %>
     </div>
     <div class="col-md-12">
       <h2>More info</h2>
     </div>
     <div class="col-12 col-md-4">
-      <%= f.input :desired_gender, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :desired_gender, :collection => %w[male female other], wrapper_html: { class: 'rap-input' } %>
     </div>
     <div class="col-12 col-md-4">
-      <%= f.input :desired_age, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :desired_age, wrapper_html: { class: 'rap-input' }, placeholder: '72'%>
     </div>
     <div class="col-12 col-md-4">
-      <%= f.input :price_per_day, wrapper_html: { class: 'rap-input' } %>
+      <%= f.input :price_per_day, wrapper_html: { class: 'rap-input' }, placeholder: '145' %>
     </div>
     <div class="col-md-12">
       <h2>Add a Picture</h2>
