@@ -2,8 +2,10 @@
   <h2>Hi <%= @user.first_name %>, this is your dashboard</h2>
 
   <h3>Your bookings</h3>
-  <% if @user.bookings.nil? %>
-    <div class="booking-card-container">
+  <% if @user.bookings.empty? %>
+    <p>You don't have any bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
+  <% else %>
+        <div class="booking-card-container">
       <% @user.bookings.each do |booking| %>
         <div class="booking-card">
           <img src="<%= booking.personality.picture %>" alt="" class="big-avatar">
@@ -15,12 +17,10 @@
         </div>
       <% end %>
     </div>
-  <% else %>
-    <p>You don't have any bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
   <% end %>
 
   <% if @user.is_partner == false %>
-    <h3>Want to become datable?</h3>
+    <h3>Want to become a partner?</h3>
       <p>Your profile just allows you to book dates with personalities for now. If you want to become datable as well, click on the below button to become a partner and create your first personality.</p>
     <%= link_to "Become a partner", new_personality_path(partner: true), class: "btn btn-green" %>
   <% else %>
