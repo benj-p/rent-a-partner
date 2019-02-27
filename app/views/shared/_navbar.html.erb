@@ -10,7 +10,7 @@
     <% if current_user %>
 
       <% unless current_user.is_partner %>
-        <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to "Become a partner", new_personality_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
       <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>

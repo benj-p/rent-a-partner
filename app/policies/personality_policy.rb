@@ -21,7 +21,6 @@ class PersonalityPolicy < ApplicationPolicy
     record_owner?
   end
 
-
   private
 
   def record_owner?
