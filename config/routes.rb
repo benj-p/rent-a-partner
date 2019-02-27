@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     member do
       get 'dashboard'
     end
-    resources :personalities, only: [:show] do
-      resources :bookings, only: [:new, :create]
-    end
+    resources :personalities, only: [:show]
   end
-  resources :personalities, only: [:index, :new, :create, :show, :edit]
+  resources :personalities, only: [:index, :new, :create, :show, :edit] do
+    resources :bookings, only: [:new, :create]
+  end
   resources :bookings, only: [:destroy]
 end
