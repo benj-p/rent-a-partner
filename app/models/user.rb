@@ -6,6 +6,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  mount_uploader :picture, PictureUploader
+
   has_many :personalities, dependent: :destroy
   has_many :bookings, dependent: :destroy
 
