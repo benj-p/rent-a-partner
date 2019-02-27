@@ -3,10 +3,6 @@ class PersonalitiesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    if params[:partner] == "true"
-      current_user.update(is_partner: true)
-      flash.notice = "Congrats! You're now a partner, you can start adding personalities."
-    end
     @personalities = policy_scope(Personality)
     @locations_array = [nil]
     @personalities.each do |personality|
@@ -23,6 +19,10 @@ class PersonalitiesController < ApplicationController
   end
 
   def new
+    if params[:partner] == "true"
+      current_user.update(is_partner: true)
+      flash.notice = "Congrats! You're now a partner, you can start adding personalities."
+    end
     @personality = Personality.new
     authorize @personality
   end
