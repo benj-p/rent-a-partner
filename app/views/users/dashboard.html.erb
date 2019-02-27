@@ -6,7 +6,7 @@
     <p>You don't have any bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
   <% else %>
         <div class="booking-card-container">
-      <% @user.bookings.each do |booking| %>
+      <% @user.bookings.sort_by(&:date).each do |booking| %>
         <div class="booking-card">
           <img src="<%= booking.personality.picture %>" alt="" class="big-avatar">
           <div class="booking-card-details">
