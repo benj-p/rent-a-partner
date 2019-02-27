@@ -5,6 +5,9 @@ class PersonalitiesController < ApplicationController
   def index
     @personalities = policy_scope(Personality)
     @locations_array = [nil]
+    if params[:person]
+      @date = Date.new(params[:person]['date(1i)'].to_i, params[:person]['date(2i)'].to_i, params[:person]['date(3i)'].to_i)
+    end
     @personalities.each do |personality|
       @locations_array << personality.user.location
     end

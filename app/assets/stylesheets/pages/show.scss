@@ -25,9 +25,32 @@
 }
 
 .other-personalities{
+	min-width: 400px;
+	text-align: center;
 	img {
 		height: 50px;
 		width: 50px;
 		object-fit: cover;
+		border-radius: 8px;
 	}
+}
+
+.perso-flex{
+	display: flex;
+}
+
+.personality{
+	display:flex;
+	flex-direction: column;
+	margin: 5px;
+	& > p {
+		font-size: 12px;
+	}
+	& > a {
+		color: black;
+	}
+}
+
+.img-rounded{
+	border-radius: 8px;
 }

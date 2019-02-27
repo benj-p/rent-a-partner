@@ -1,6 +1,5 @@
 <div class="container">
   <h2>All Personalities</h2>
-
   <div class="filter">
     <%= form_tag("/personalities", method: "get") do %>
       <%= label_tag(:q, "Search for") %>
@@ -15,7 +14,7 @@
       <%= select_tag(:location, options_for_select(@locations_array.uniq))
        %>
       <%= label_tag(:date, "Date") %>
-      <%= date_select :person, :date %>
+      <%= date_select :person, :date, selected: @date %>
       <%= submit_tag("Search") %>
     <% end %>
   </div>
@@ -27,6 +26,6 @@
   <% if policy(Personality.new).create? %>
     <%= link_to "New personality", new_personality_path %>
   <% end %>
-  <%= render 'shared/cards-display' %>
+  <%= render 'shared/cards-display', date: @date %>
 
 </div>
