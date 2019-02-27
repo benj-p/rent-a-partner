@@ -10,12 +10,14 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   validates :first_name, :last_name, :email, :location, :age, :gender, :picture,
-            :desired_gender, :desired_age, :bio, presence: true
+            :bio, presence: true
   validates :email, uniqueness: true
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :bio, length: { minimum: 100, maximum: 500 }
-  validates :age, :desired_age, numericality: { greater_than_or_equal_to: 18 }
-  validates :gender, :desired_gender, inclusion: { in: ["male", "female", "other"] }
+  validates :age, numericality: { greater_than_or_equal_to: 18 }
+  validates :desired_age, numericality: { greater_than_or_equal_to: 18 }, allow_blank: true
+  validates :gender, inclusion: { in: ["male", "female", "other"] }
+  validates :desired_gender, inclusion: { in: ["male", "female", "other"] }, allow_blank: true
 
   scope :gender, -> (gender) { where gender: gender.downcase }
   scope :location, -> (location) { where location: location }
@@ -29,5 +31,4 @@ class User < ApplicationRecord
     first_name.capitalize!
     last_name.capitalize!
   end
-
 end
