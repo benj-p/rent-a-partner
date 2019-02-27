@@ -5,8 +5,8 @@ class PersonalitiesController < ApplicationController
   def index
     @personalities = policy_scope(Personality)
     @locations_array = [nil]
-    if params[:person]
-      @date = Date.new(params[:person]['date(1i)'].to_i, params[:person]['date(2i)'].to_i, params[:person]['date(3i)'].to_i)
+    if params[:date]
+      @date = params[:date].to_date
     end
     @personalities.each do |personality|
       @locations_array << personality.user.location
@@ -19,10 +19,14 @@ class PersonalitiesController < ApplicationController
     end
 
     sort_by_price if params[:sort] == "price"
+    # raise
   end
 
   def show
     authorize @personality
+    if params[:date]
+      @date = params[:date].to_date
+    end
     @user = @personality.user
     @personalities = @user.personalities
     @booking = Booking.new
