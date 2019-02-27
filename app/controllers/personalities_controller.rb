@@ -10,6 +10,12 @@ class PersonalitiesController < ApplicationController
     end
     @personalities = policy_scope(Personality.match_search_terms(params[:q])
                     .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i))
+
+    def sort_by_price
+      @personalities = @personalities.sort_by(&:price_per_day)
+    end
+
+    sort_by_price if params[:sort] == "price"
   end
 
   def show

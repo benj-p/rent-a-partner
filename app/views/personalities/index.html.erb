@@ -20,6 +20,10 @@
     <% end %>
   </div>
 
+  <p>
+    <%= link_to "Sort by price", personalities_path(sort: :price, q: params[:q], gender: params[:gender], price_per_day: params[:price_per_day], location: params[:location], date: params[:date]) %> (lowest to highest)
+  </p>
+
   <% if policy(Personality.new).create? %>
     <%= link_to "New personality", new_personality_path %>
   <% end %>
