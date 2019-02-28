@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_28_103713) do
+
+ActiveRecord::Schema.define(version: 2019_02_28_123844) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -51,6 +53,21 @@ ActiveRecord::Schema.define(version: 2019_02_28_103713) do
     t.index ["user_id"], name: "index_personalities_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "personality_rating"
+    t.text "personality_comment"
+    t.bigint "user_id"
+    t.bigint "personality_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_rating"
+    t.text "user_comment"
+    t.bigint "booking_id"
+    t.index ["booking_id"], name: "index_reviews_on_booking_id"
+    t.index ["personality_id"], name: "index_reviews_on_personality_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -79,4 +96,7 @@ ActiveRecord::Schema.define(version: 2019_02_28_103713) do
   add_foreign_key "messages", "users", column: "recipient_id"
   add_foreign_key "messages", "users", column: "sender_id"
   add_foreign_key "personalities", "users"
+  add_foreign_key "reviews", "bookings"
+  add_foreign_key "reviews", "personalities"
+  add_foreign_key "reviews", "users"
 end

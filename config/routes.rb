@@ -10,9 +10,11 @@ Rails.application.routes.draw do
   resources :personalities, only: [:index, :new, :create, :show, :edit] do
     resources :bookings, only: :create
   end
+
   resources :bookings, only: [:destroy] do
     resources :messages, only: [:new, :create]
   end
 
   resources :messages, only: [:index, :show]
+  resources :reviews, only: [:new, :create, :edit, :update]
 end

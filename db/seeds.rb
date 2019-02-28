@@ -1,9 +1,14 @@
 require 'date'
 puts "starting to seed..."
 
+Review.destroy_all
+puts "Now I'm there"
 User.destroy_all
+puts "I'm here"
 Booking.destroy_all
+puts "I'm there"
 Personality.destroy_all
+puts "Now I'm here"
 
 user_1 = User.new({email: "izzyweber@gmail.com", password: "secret", first_name: "Izzy",
                   last_name: "Weber", location: "London", age: 29, gender: "female",
@@ -64,5 +69,10 @@ booking_2 = Booking.new({date: Date.new(2019,7,10), message: "Hi, Jessica! I'm t
 booking_2.personality = leti_1
 booking_2.user = user_3
 booking_2.save
+
+booking_3 = Booking.new({date: Date.new(2019,2,2), message: "Hi, Jessica! I'm trying to get into coding so need a fake girlfriend who can hang with the coders. A quiet girl like you sounds perfect! Looking forward to meeting xx."})
+booking_3.personality = leti_1
+booking_3.user = user_3
+booking_3.save
 
 puts "seeding done!"

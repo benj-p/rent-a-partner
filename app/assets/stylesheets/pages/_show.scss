@@ -1,5 +1,5 @@
-.info-image{
-	display: flex;
+.container-column {
+	flex-direction: column;
 }
 
 .image-and-stars-and-buttons{
@@ -32,6 +32,7 @@
 		width: 50px;
 		object-fit: cover;
 		border-radius: 8px;
+		padding-right: 0;
 	}
 }
 
@@ -49,8 +50,29 @@
 	& > a {
 		color: black;
 	}
+	img{
+		width:20px;
+		height:20px;
+	}
 }
 
 .img-rounded{
-	border-radius: 8px;
+}
+
+#profile-line {
+	margin: 20px 0px;
+	border-top: 3px solid black;
+}
+
+.right-container{
+	margin:4px;
+	margin-top:20px;
+	background-repeat: no-repeat;
+	min-width: 400px;
+	// img{
+	// 	border-radius: 4px;
+	// 	height: 300px;
+	// 	width:300px;
+
+	// }
 }
