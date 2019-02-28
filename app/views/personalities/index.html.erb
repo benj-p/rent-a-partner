@@ -9,18 +9,17 @@
        %>
       <%= label_tag(:price_per_day, "Price") %>
       <%= select_tag(:price_per_day, options_for_select([nil, ['£1 - £19', 1], ['£20 - £49', 2], ['£50 - £100', 3], ['£100 +', 4]]))
-       %> <br>
+       %>
       <%= label_tag(:location, "Location") %>
       <%= select_tag(:location, options_for_select(@locations_array.uniq))
        %>
       <%= label_tag(:date, "Date") %>
       <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
-      <%= submit_tag("Search") %>
+      <%= submit_tag("Search", class: "btn btn-green", id: "search" ) %>
     <% end %>
   </div>
-
   <p>
-    <%= link_to "Sort by price", personalities_path(sort: :price, q: params[:q], gender: params[:gender], price_per_day: params[:price_per_day], location: params[:location], date: @date) %> (lowest to highest)
+    <%= link_to "Sort by price", personalities_path(sort: :price, q: params[:q], gender: params[:gender], price_per_day: params[:price_per_day], location: params[:location], date: @date) %>
   </p>
 
   <% if policy(Personality.new).create? %>
