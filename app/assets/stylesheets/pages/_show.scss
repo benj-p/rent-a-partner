@@ -1,5 +1,5 @@
-.container-column {
-	flex-direction: column;
+.specific{
+	display: flex;
 }
 
 .image-and-stars-and-buttons{
@@ -51,8 +51,9 @@
 		color: black;
 	}
 	img{
-		width:20px;
-		height:20px;
+		width:80px;
+		height:80px;
+		border-radius:8px;
 	}
 }
 
@@ -65,14 +66,46 @@
 }
 
 .right-container{
-	margin:4px;
-	margin-top:20px;
 	background-repeat: no-repeat;
 	min-width: 400px;
-	// img{
-	// 	border-radius: 4px;
-	// 	height: 300px;
-	// 	width:300px;
+	min-height: 60%;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+	
+	img{
+		border-radius: 4px;
+	}
+}
 
-	// }
+.bookings{
+	width: 400px;
+}
+
+.btn-longer{
+	
+	margin-top:5%;
+}
+
+.personalities{
+	top-margin:8px;
+	margin-top: 80px;
+    margin-rigt: 20px;
+    margin-right: 40px;
+}
+.edit-personality{
+	a {
+		color: rgba(50,50,50,0.6);		
+	}
+	a:hover{
+		color:rgba(0,0,0,0.7)
+	}
+}
+
+.left-container {
+	padding-right: 2%;
+}
+
+#date {
+	display: block;
 }
