@@ -10,6 +10,8 @@ class User < ApplicationRecord
 
   has_many :personalities, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :sent_messages, :class_name => 'Message', :foreign_key => 'sender_id'
+  has_many :recieved_messages, :class_name => 'Message', :foreign_key => 'recipient_id'
 
   validates :first_name, :last_name, :email, :location, :age, :gender, :picture,
             :bio, presence: true
