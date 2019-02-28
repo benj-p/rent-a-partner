@@ -72,7 +72,7 @@
 	display: flex;
     flex-direction: column;
     justify-content: space-between;
-	
+
 	img{
 		border-radius: 4px;
 	}
@@ -83,7 +83,7 @@
 }
 
 .btn-longer{
-	
+
 	margin-top:5%;
 }
 
@@ -95,7 +95,7 @@
 }
 .edit-personality{
 	a {
-		color: rgba(50,50,50,0.6);		
+		color: rgba(50,50,50,0.6);
 	}
 	a:hover{
 		color:rgba(0,0,0,0.7)
@@ -104,8 +104,4 @@
 
 .left-container {
 	padding-right: 2%;
-}
-
-#date {
-	display: block;
 }
