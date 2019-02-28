@@ -26,7 +26,6 @@ class Personality < ApplicationRecord
   scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present? }
   scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present? }
   scope :not_available, -> (date) { joins(:bookings).merge(Booking.not_available(date))}
-  # scope :available, -> (date) { where.not(Personality.not_available(date)) if date.present? }
   scope :excluding, -> (*values) {
   where(
     "#{table_name}.id NOT IN (?)",
@@ -35,16 +34,11 @@ class Personality < ApplicationRecord
           if e.is_a?(Integer)
             e
           else
-            e.is_a?(self) ? e.id : raise("Element not the same type as #{self}.")
+            e.is_a?(Personality) ? e.id : raise("Element not the same type as #{self}.")
           end
         } << 0
       )
     )
   }
-
-
-  # def self.available
-  #   Personality.joins(:bookings).where(bookings: { created_at: time_range })
-  # end
 
 end
