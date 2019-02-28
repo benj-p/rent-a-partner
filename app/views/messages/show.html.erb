@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-md-offset-3">
+      <div class="centered-flexbox">
+        <%= cl_image_tag @message.sender.picture, height: 100, width: 100, crop: :fill, class: 'avatar' %>
+        <h1><%= @message.sender.first_name %></h1>
+        <div class="message-body">
+          <p><%= @message.content %></p>
+          <p><%= time_ago_in_words(@message.created_at) %> ago</p>
+        </div>
+      </div>
+      <div class="message-response-form-container">
+        <p>Reply...</p>
+        <%= simple_form_for [@message.booking, Message.new] do |f| %>
+         <%= f.input :content %>
+         <%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @message.sender.id } %>
+         <%= f.submit "Send Message" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+

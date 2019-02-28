@@ -1,0 +1,54 @@
+.message-container {
+  display: flex;
+  align-items: center;
+  background: #ebebeb;
+  padding: 8px;
+  margin: 8px;
+  border-radius: 4px;
+}
+
+.message-info {
+  flex-grow: 1;
+  padding: 8px;
+  .sender-name {
+    font-weight: bold;
+    font-size: 24px;
+  }
+  .message-content {
+    font-size: 16px;
+  }
+}
+
+.message-actions {
+  padding: 8px;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  p {
+    font-size: 14px;
+    color: #bfbfbf;
+    text-align: right;
+  }
+}
+
+.message-body {
+  background: #fff;
+  border-radius: 4px;
+  padding: 8px;
+}
+
+.message-response-form-container {
+  background: $pink;
+  padding: 8px;
+  border-radius: 4px;
+  margin: 16px;
+}
+
+.unread {
+  background: #fff;
+}
+
+.avatar {
+  border-radius: 50px;
+}
+
