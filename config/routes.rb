@@ -5,9 +5,12 @@ Rails.application.routes.draw do
     member do
       get 'dashboard'
     end
+    resources :messages, only: :index
   end
   resources :personalities, only: [:index, :new, :create, :show, :edit] do
     resources :bookings, only: :create
   end
-  resources :bookings, only: [:destroy]
+  resources :bookings, only: [:destroy] do
+    resources :messages, only: [:new, :create]
+  end
 end
