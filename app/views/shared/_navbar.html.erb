@@ -8,15 +8,12 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
 
     <% if current_user %>
-
       <% unless current_user.is_partner %>
         <%= link_to "Become a partner", new_personality_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
       <% end %>
 
-      <%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Bookings", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Messages", messages_path, class: "navbar-wagon-item navbar-wagon-link" %>
-
+      <%= link_to "See all personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %>
+      <%= link_to "Dashboard", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Profile picture with dropdown list -->
       <div class="navbar-wagon-item">
@@ -24,8 +21,7 @@
 
           <img src="<%= cl_image_path current_user.picture %>" class="small-avatar dropdown-toggle" id="navbar-wagon-menu" data-toggle="dropdown">
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Dashboard</a></li>
+            <li><%= link_to "Messages", messages_path %></li>
             <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
           </ul>
         </div>
@@ -45,11 +41,11 @@
         <% if current_user %>
           <li>
             <% unless current_user.is_partner %>
-              <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link" %>
+              <%= link_to "Become a partner", personalities_path(partner: true), class: "navbar-wagon-item navbar-wagon-link " %>
             <% end %>
           </li>
           <li><%= link_to "Personalities", personalities_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
-          <li><%= link_to "Bookings", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "Dashboard", dashboard_user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></a></li>
         <% else %>
           <li><%= link_to "Sign up", new_user_registration_path %></li>
