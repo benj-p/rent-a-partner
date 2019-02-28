@@ -9,6 +9,13 @@
           <p><%= time_ago_in_words(@message.created_at) %> ago</p>
         </div>
       </div>
+      <div class="message-response-form-container">
+        <p>Reply...</p>
+        <%= simple_form_for [@message.booking, Message.new] do |f| %>
+         <%= f.input :content %>
+         <%= f.submit "Send Message" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
