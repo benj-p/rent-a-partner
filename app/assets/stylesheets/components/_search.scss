@@ -18,6 +18,37 @@
   }
 }
 
-    #home-search {
-      color: white;
-    }
+.filter{
+  padding-bottom: 12px;
+  label {
+   font-weight: 500;
+  }
+  select, input {
+    font-weight: 500;
+    background-color: white;
+    font-family: "Poppins", "Helvetica", "sans-serif";
+    color: #606060;
+    border-radius: 5px;
+    font-size: 16px;
+    border-width: 0px;
+    padding: 8px 10px;
+    height: 36px;
+    max-width: 180px;
+    margin-right: 10px;
+    margin-bottom: 6px;
+  }
+
+}
+
+  #home-search {
+    color: white;
+    background-color: #52B796;
+  }
+
+  #search {
+    color: white;
+    background-color: #52B796;
+    padding-left: 12px;
+    padding-right: 12px;
+    height: 36px;
+  }
