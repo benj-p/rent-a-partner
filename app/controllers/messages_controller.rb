@@ -5,10 +5,8 @@ class MessagesController < ApplicationController
 
   def show
     @message = Message.find(params[:id])
+    @message.update(read: true)
     authorize @message
-  end
-
-  def new
   end
 
   def create
