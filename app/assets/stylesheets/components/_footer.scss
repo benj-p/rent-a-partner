@@ -1,18 +1,32 @@
 .footer {
-  height: 200px;
-  background: #E56399;
+  height: 100px;
+  background: white;
   color: #fff;
-  margin-top: 16px;
+  margin-top: 40px;
+  h2{
+    font-size:28px;
+    color: $pink;
+  }
 }
 
 .social {
+  justify-content: space-around;
+  li{
+    margin-left: 0;
+  }
   a {
-    color: #fff;
-    font-size: 48px;
-    margin-right: 16px;
+    color: $pink;
+    font-size: 24px;
     transition: 0.3s;
+    padding-bottom: 8px;
     &:hover {
       opacity: 0.5;
     }
   }
 }
+
+
+
+
+
+
