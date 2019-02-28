@@ -4,6 +4,7 @@
       <div class="centered-flexbox">
         <div class="message-response-form-container">
         <p>New Message to <%= @recipient.first_name %></p>
+        <p>Regarding booking <%= @booking.personality.first_name %> on <%= @booking.date %></p>
         <%= simple_form_for [@booking, @message] do |f| %>
          <%= f.input :content %>
          <%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @recipient.id } %>
