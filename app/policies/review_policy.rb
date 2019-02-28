@@ -9,6 +9,10 @@ class ReviewPolicy < ApplicationPolicy
     @user
   end
 
+  def update?
+    @user
+  end
+
   def destroy?
     @record.user == @user
   end

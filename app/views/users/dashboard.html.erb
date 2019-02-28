@@ -22,7 +22,11 @@
             <p class="text-center">
               <% unless booking.date > Date.today() %>
                 <% if booking.review.nil? || booking.review.personality_rating.nil? %>
-                  <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "user"), class: "text-alert" %>
+                  <% if booking.review.nil? %>
+                    <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "user"), class: "text-alert" %>
+                  <% elsif booking.review.personality_rating.nil? %>
+                    <%= link_to "Add a review", edit_review_path(booking: booking, reviewer: "user"), class: "text-alert" %>
+                  <% end %>
                 <% else %>
                   <%= ("<i class=\"fas fa-star\"></i>" * booking.review.personality_rating).html_safe %>
                 <% end %>
@@ -60,11 +64,23 @@
                   <p><strong>With who?</strong> <%= booking.user.first_name + " " + booking.user.last_name %></p>
                 </div>
                 <div>
+                  <% unless booking.date < Date.today() %>
+                    <p>
+                      <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+                    </p>
+                  <% end %>
                   <p>
-                    <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
-                  </p>
-                  <p>
-                    <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "personality"), class: "text-alert" %>
+                    <% unless booking.date > Date.today() %>
+                      <% if booking.review.nil? || booking.review.user_rating.nil? %>
+                          <% if booking.review.nil? %>
+                            <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "personality"), class: "text-alert" %>
+                          <% elsif booking.review.personality_rating.nil? %>
+                            <%= link_to "Add a review", edit_review_path(booking: booking, reviewer: "personality"), class: "text-alert" %>
+                          <% end %>
+                      <% else %>
+                        <%= ("<i class=\"fas fa-star\"></i>" * booking.review.user_rating).html_safe %>
+                      <% end %>
+                    <% end %>
                   </p>
                 </div>
               </div>

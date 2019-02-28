@@ -21,6 +21,23 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def edit
+    @booking = params[:booking]
+    @review = Booking.find(params[:booking].to_i).review
+    authorize @review
+  end
+
+  def update
+    @booking = params[:booking]
+    @review = Booking.find(params[:booking].to_i).review
+    authorize @review
+    if @review.update_attributes(review_params)
+      redirect_to dashboard_user_path(current_user)
+    else
+      render :edit
+    end
+  end
+
   private
 
   def review_params
