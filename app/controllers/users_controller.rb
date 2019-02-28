@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def dashboard
     authorize @user
+    @bookings_upcoming = @user.bookings.where("DATE(date) >= ?", Date.today)
+    @bookings_past = @user.bookings.where("DATE(date) < ?", Date.today)
   end
 
   private
