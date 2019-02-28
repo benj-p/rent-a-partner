@@ -1,0 +1,23 @@
+.filter-home {
+  padding: 10px;
+  label {
+   color: white;
+   font-weight: 500;
+   padding-left: 10px;
+  }
+  select, input {
+    font-weight: 500;
+    font-family: "Poppins", "Helvetica", "sans-serif";
+    color: #606060;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 4px;
+    border-width: 0px;
+    padding: 8px 24px;
+    height: 42px;
+  }
+}
+
+    #home-search {
+      color: white;
+    }

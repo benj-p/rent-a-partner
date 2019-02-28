@@ -14,7 +14,7 @@
         <%= label_tag(:date, "Date") %>
         <%= date_field_tag(:date, Date.today, options = {min: Date.today()})%>
 
-        <%= submit_tag("Search") %>
+        <%= submit_tag("Search", class: "btn btn-green", id: "home-search" )%>
       <% end %>
     </div>
   </div>
