@@ -66,10 +66,12 @@
 }
 
 .right-container{
-	margin:4px;
-	margin-top:20px;
 	background-repeat: no-repeat;
 	min-width: 400px;
+	min-height: 60%;
+	display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 	
 	img{
 		border-radius: 4px;
@@ -81,7 +83,8 @@
 }
 
 .btn-longer{
-	width: 400px;
+	
+	margin-top:5%;
 }
 
 .personalities{
@@ -99,3 +102,10 @@
 	}
 }
 
+.left-container {
+	padding-right: 2%;
+}
+
+#date {
+	display: block;
+}

@@ -26,7 +26,7 @@
 							<div class="personality">
 								<%= link_to personality_path(personality) do %>
 								<% next if personality == @personality   %>
-								<%= cl_image_tag personality.picture%>
+								<%= cl_image_tag personality.picture, height: 300, width: 400, crop: :fill %>
 								<p> <%= personality.first_name %> </p>
 								<% end %>
 							</div>
@@ -47,7 +47,7 @@
 			
 			 <div class="bookings">		
 				<%= simple_form_for [@personality, @booking] do |f| %>
-				    <%= f.input :date, as: :string, input_html: {value: params[:date]} %>
+				    <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
 				    <%= f.submit "Book now", class: "btn btn-green btn-longer" %>
 				<% end %>
 			</div>
