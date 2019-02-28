@@ -3,7 +3,18 @@
 
   <% @messages.each do |message| %>
 
-    <%= message.content %>
+    <div class="message-container">
+      <%= cl_image_tag message.booking.personality.picture, height: 100, width: 100, crop: :fill, class: 'avatar' %>
+      <div>
+        <p class="sender-name"><%= message.booking.personality.first_name %></p>
+        <p class="message-content"><%= message.content %></p>
+      </div>
+      <div class="message-actions">
+        <p><%= time_ago_in_words(message.created_at) %> ago</p>
+        <p><%= message.read ? 'Read' : 'Unread' %></p>
+        <a href="" class="btn btn-green">Read</a>
+      </div>
+    </div>
 
   <% end %>
 
