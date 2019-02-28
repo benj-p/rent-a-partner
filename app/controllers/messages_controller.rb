@@ -9,6 +9,13 @@ class MessagesController < ApplicationController
     authorize @message
   end
 
+  def new
+    @message = Message.new
+    @booking = Booking.find(params[:booking_id])
+    @recipient = @booking.user == current_user ? @booking.personality.user : @booking.user
+    authorize @message
+  end
+
   def create
     @message = Message.new(message_params)
     @booking = Booking.find(params[:booking_id])
