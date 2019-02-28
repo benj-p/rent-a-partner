@@ -1,8 +1,15 @@
 .footer {
-  height: 100px;
+  height: 60px;
   background: #E56399;
   color: #fff;
   margin-top: 16px;
+  position: absolute;
+  padding: 12px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 1rem;
 }
 
 h2 {
@@ -19,4 +26,10 @@ h2 {
       opacity: 0.5;
     }
   }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
 }
