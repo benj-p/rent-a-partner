@@ -8,4 +8,8 @@ class MessagePolicy < ApplicationPolicy
   def show?
     user == record.recipient || user == record.sender
   end
+
+  def create?
+    true
+  end
 end
