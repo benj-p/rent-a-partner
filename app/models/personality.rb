@@ -1,6 +1,7 @@
 class Personality < ApplicationRecord
   belongs_to :user
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   mount_uploader :picture, PictureUploader
 
@@ -23,6 +24,22 @@ class Personality < ApplicationRecord
         where ("personalities.price_per_day BETWEEN 101 AND 9999999999")
       end }
   scope :match_search_terms, -> (query) { where("personalities.first_name ILIKE ? OR personalities.last_name ILIKE ? OR personalities.bio ILIKE ?", "%#{query}%", "%#{query}%", "%#{query}%") if query.present? }
-  scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present?}
-  scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present?}
+  scope :gender, -> (gender) { joins(:user).merge(User.gender(gender)) if gender.present? }
+  scope :location, -> (location) { joins(:user).merge(User.location(location)) if location.present? }
+  scope :not_available, -> (date) { joins(:bookings).merge(Booking.not_available(date))}
+  scope :excluding, -> (*values) {
+  where(
+    "#{table_name}.id NOT IN (?)",
+      (
+        values.compact.flatten.map { |e|
+          if e.is_a?(Integer)
+            e
+          else
+            e.is_a?(Personality) ? e.id : raise("Element not the same type as #{self}.")
+          end
+        } << 0
+      )
+    )
+  }
+
 end

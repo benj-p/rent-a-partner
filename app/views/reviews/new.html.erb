@@ -1,0 +1,26 @@
+<div class="container">
+  <h1>Add a review</h1>
+  <div class="row">
+    <%= simple_form_for @review do |f| %>
+      <% if params[:reviewer] == "user" %>
+        <div class="col-12">
+          <%= f.input :personality_rating, label: "Rating", :collection => Review::RATING %>
+        </div>
+        <div class="col-12">
+          <%= f.input :personality_comment, label: "Comment", placeholder: 'Describe how your date went'  %>
+        </div>
+      <% elsif params[:reviewer] == "personality" %>
+        <div class="col-12">
+          <%= f.input :user_rating, label: "Rating", :collection => Review::RATING %>
+        </div>
+        <div class="col-12">
+          <%= f.input :user_comment, label: "Comment", placeholder: 'Describe how your date went'  %>
+        </div>
+      <% end %>
+      <%= hidden_field_tag 'booking', @booking %>
+      <div class="col-md-12">
+      <%= f.submit "Submit review", class: "btn btn-green" %>
+    </div>
+    <% end %>
+  </div>
+</div>

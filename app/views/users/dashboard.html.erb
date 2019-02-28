@@ -1,7 +1,7 @@
 <div class="container">
   <h2>Hi <%= @user.first_name %>, this is your dashboard</h2>
 
-  <h3>Your bookings</h3>
+  <h3>Your bookings as a desperate</h3>
   <% if @user.bookings.empty? %>
     <p>You don't have any bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
   <% else %>
@@ -13,7 +13,26 @@
             <p><strong>When?</strong> <%= booking.date %></p>
             <p><strong>With who?</strong> <%= link_to booking.personality.first_name + " " + booking.personality.last_name, personality_path(booking.personality) %></p>
           </div>
-          <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+          <div>
+            <% unless booking.date < Date.today() %>
+              <p>
+                <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+              </p>
+            <% end %>
+            <p class="text-center">
+              <% unless booking.date > Date.today() %>
+                <% if booking.review.nil? || booking.review.personality_rating.nil? %>
+                  <% if booking.review.nil? %>
+                    <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "user"), class: "text-alert" %>
+                  <% elsif booking.review.personality_rating.nil? %>
+                    <%= link_to "Add a review", edit_review_path(booking: booking, reviewer: "user"), class: "text-alert" %>
+                  <% end %>
+                <% else %>
+                  <%= ("<i class=\"fas fa-star\"></i>" * booking.review.personality_rating).html_safe %>
+                <% end %>
+              <% end %>
+            </p>
+          </div>
         </div>
       <% end %>
     </div>
@@ -30,6 +49,45 @@
     <% else %>
       <% @personalities = @user.personalities %>
       <%= render 'shared/cards-display' %>
+
+      <h3>Your bookings as a partner</h3>
+      <% if @user.personalities.each { |personality| personality.bookings }.empty? %>
+        <p>Looks like noone has booked you yet, you could try <%= link_to "creating a new personality", personalities_path %> 😃</p>
+      <% else %>
+            <div class="booking-card-container">
+          <% @user.personalities.each do |personality| %>
+            <% personality.bookings.each do |booking| %>
+              <div class="booking-card">
+                <img src="<%= booking.user.picture %>" alt="" class="big-avatar">
+                <div class="booking-card-details">
+                  <p><strong>When?</strong> <%= booking.date %></p>
+                  <p><strong>With who?</strong> <%= booking.user.first_name + " " + booking.user.last_name %></p>
+                </div>
+                <div>
+                  <% unless booking.date < Date.today() %>
+                    <p>
+                      <%= link_to "Delete booking", booking_path(booking), method: :delete, data: { confirm: "Are you sure you want to delete this booking?" }, class: "text-danger" %>
+                    </p>
+                  <% end %>
+                  <p>
+                    <% unless booking.date > Date.today() %>
+                      <% if booking.review.nil? || booking.review.user_rating.nil? %>
+                          <% if booking.review.nil? %>
+                            <%= link_to "Add a review", new_review_path(booking: booking, reviewer: "personality"), class: "text-alert" %>
+                          <% elsif booking.review.personality_rating.nil? %>
+                            <%= link_to "Add a review", edit_review_path(booking: booking, reviewer: "personality"), class: "text-alert" %>
+                          <% end %>
+                      <% else %>
+                        <%= ("<i class=\"fas fa-star\"></i>" * booking.review.user_rating).html_safe %>
+                      <% end %>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
   <% end %>
 </div>

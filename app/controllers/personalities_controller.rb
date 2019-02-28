@@ -12,14 +12,14 @@ class PersonalitiesController < ApplicationController
       @locations_array << personality.user.location
     end
     @personalities = policy_scope(Personality.match_search_terms(params[:q])
-                    .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i))
+                    .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i)
+                    .excluding(Personality.not_available(params[:date])))
 
     def sort_by_price
       @personalities = @personalities.sort_by(&:price_per_day)
     end
 
     sort_by_price if params[:sort] == "price"
-    # raise
   end
 
   def show

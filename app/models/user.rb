@@ -10,6 +10,7 @@ class User < ApplicationRecord
 
   has_many :personalities, dependent: :destroy
   has_many :bookings, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 
   validates :first_name, :last_name, :email, :location, :age, :gender, :picture,
             :bio, presence: true
