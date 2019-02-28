@@ -1,20 +1,26 @@
 <div class="container">
   <h1>My inbox</h1>
+  <% unless @messages.empty? %>
 
-  <% @messages.each do |message| %>
+    <% @messages.each do |message| %>
 
-    <div class="message-container">
-      <%= cl_image_tag message.booking.personality.picture, height: 100, width: 100, crop: :fill, class: 'avatar' %>
-      <div>
-        <p class="sender-name"><%= message.booking.personality.first_name %></p>
-        <p class="message-content"><%= message.content %></p>
+      <div class="message-container <%= 'unread' unless message.read %>">
+        <%= cl_image_tag message.booking.personality.picture, height: 100, width: 100, crop: :fill, class: 'avatar' %>
+        <div class="message-info">
+          <p class="sender-name"><%= message.booking.personality.first_name %> (<%= message.read ? 'Read' : 'Unread' %>)</p>
+          <p class="message-content"><%= message.content %></p>
+        </div>
+        <div class="message-actions">
+          <a href="" class="btn btn-green">Open</a>
+          <p><%= time_ago_in_words(message.created_at) %> ago</p>
+        </div>
       </div>
-      <div class="message-actions">
-        <p><%= time_ago_in_words(message.created_at) %> ago</p>
-        <p><%= message.read ? 'Read' : 'Unread' %></p>
-        <a href="" class="btn btn-green">Read</a>
-      </div>
-    </div>
+
+    <% end %>
+
+  <% else %>
+
+    <p> You don't have any messages, please check back later! </p>
 
   <% end %>
 
