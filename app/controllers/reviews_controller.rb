@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.user = @user
     @review.personality = @personality
+    @review.booking = @booking
     authorize @review
     if @review.save
       redirect_to dashboard_user_path(current_user)
@@ -23,6 +24,6 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:personality_rating, :personality_comment, :user_rating, :user_comment, :user_id, :personality_id)
+    params.require(:review).permit(:personality_rating, :personality_comment, :user_rating, :user_comment, :user_id, :personality_id, :booking_id)
   end
 end

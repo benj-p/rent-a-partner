@@ -1,6 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :personality
   belongs_to :user
+  has_one :review
 
   validate :booking_date_cannot_be_in_the_past
   validates :personality_id, :user_id, presence: true

@@ -1,9 +1,14 @@
 require 'date'
 puts "starting to seed..."
 
+Review.destroy_all
+puts "Now I'm there"
 User.destroy_all
+puts "I'm here"
 Booking.destroy_all
+puts "I'm there"
 Personality.destroy_all
+puts "Now I'm here"
 
 user_1 = User.new({email: "izzyweber@gmail.com", password: "secret", first_name: "Izzy",
                   last_name: "Weber", location: "London", age: 29, gender: "female",
