@@ -79,7 +79,7 @@
       <% else %>
             <div class="booking-card-container">
           <% @user.personalities.each do |personality| %>
-            <% personality.bookings.each do |booking| %>
+            <% personality.bookings.each.sort_by(&:date).each do |booking| %>
               <div class="booking-card">
                 <img src="<%= booking.user.picture %>" alt="" class="big-avatar">
                 <div class="booking-card-details">
