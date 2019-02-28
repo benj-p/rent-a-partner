@@ -1,51 +1,48 @@
+
+
 <% if policy(@personality).edit? %>
   <%= link_to "Edit Personality", edit_personality_path(@personality) %>
 <% end %>
 
-
-<div class="container">
-	<div class="info-image">
-		<div class="info">
-			<h1><%= @personality.first_name %> <%= @personality.last_name %></h1>
-			<p>desired age: <%= @personality.desired_age %></p>
-			<p>Bio: <%= @personality.bio%></p>
-			<p>price: <%= @personality.price_per_day %></p>
-		</div>
-
-		<div class="image-and-stars-and-buttons">
-			<div class="image">
-				<%= cl_image_tag(@personality.picture, width: 400, height: 300, crop: :fill, gravity: :face, class: "img-rounded") %>
-			</div>
-			<div class="stars-and-buttons">
-			</div>
-		</div>
+<div class="container container-column">
+	<div class= "name">
+		<h1><%= @personality.first_name %> <%= @personality.last_name %></h1>
 	</div>
-		<div class="personality-of">
-			<div class="real-identity">
-				<p><%= @personality.first_name %> <%= @personality.last_name %> is a fake personality of <%= @personality.user.first_name%></p>
+	<div id="profile-line"></div>
+</div>
+<div class="container">
+		<div class="left-container">
+			<div class="description">
+				<p>Desired age: <%= @personality.desired_age %></p>
+				<p>Bio: <%= @personality.bio%></p>
+				<p>Price: <%= @personality.price_per_day %></p>
 			</div>
-			<div class="other-personalities">
+			<div class="personalities">
+				<p><%= @personality.first_name %> <%= @personality.last_name %> is a fake personality of <%= @personality.user.first_name%></p>
 				<% if @personalities.count > 1 %>
-					<p>Those are <%=@personality.first_name%>'s other personalities:</p>
-					<div class="perso-flex">
+					<p>Those are <%=@personality.user.first_name%>'s other personalities:</p>
 						<% @personalities.each do |personality| %>
-						<div class="personality">
-							<%= link_to personality_path(personality) do %>
-							<% next if personality == @personality   %>
-							<%= cl_image_tag personality.picture%>
-							<p> <%= personality.first_name %> </p>
-							<% end %>
-						</div>
-					<% end %>
-					</div>
+							<div class="personality">
+								<%= link_to personality_path(personality) do %>
+								<% next if personality == @personality   %>
+								<%= cl_image_tag personality.picture%>
+								<p> <%= personality.first_name %> </p>
+								<% end %>
+							</div>
+						<% end %>
 				<% else %>
 					<p>This is  <%= @personality.user.first_name%>'s only personality</p>
 				<% end %>
 			</div>
+			<div class="bookings">		
+			    <%= simple_form_for [@personality, @booking] do |f| %>
+			          <%= f.input :date, as: :string, input_html: {value: params[:date]} %>
+			          <%= f.submit "Book now", class: "btn btn-primary" %>
+			    <% end %>
+			</div>
 		</div>
 
-    <%= simple_form_for [@personality, @booking] do |f| %>
-          <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
-          <%= f.submit "Book now", class: "btn btn-primary" %>
-    <% end %>
+		<div class="right-container" style="background-image: 
+         url('<%= cl_image_path @personality.picture, height: 300, width: 400, crop: :fill, gravity: :face %>')">
+		</div>
 </div>
