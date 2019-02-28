@@ -7,7 +7,7 @@
       <div class="message-container <%= 'unread' unless message.read %>">
         <%= cl_image_tag message.booking.personality.picture, height: 100, width: 100, crop: :fill, class: 'avatar' %>
         <div class="message-info">
-          <p class="sender-name"><%= message.booking.personality.first_name %> (<%= message.read ? 'Read' : 'Unread' %>)</p>
+          <p class="sender-name"><%= message.sender.first_name %> (<%= message.read ? 'Read' : 'Unread' %>). Regarding: <%= message.booking.personality.first_name %></p>
           <p class="message-content"><%= message.content %></p>
         </div>
         <div class="message-actions">
