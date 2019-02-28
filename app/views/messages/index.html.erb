@@ -11,7 +11,7 @@
           <p class="message-content"><%= message.content %></p>
         </div>
         <div class="message-actions">
-          <a href="" class="btn btn-green">Open</a>
+          <%= link_to "Open", message_path(message), class: 'btn btn-green' %>
           <p><%= time_ago_in_words(message.created_at) %> ago</p>
         </div>
       </div>

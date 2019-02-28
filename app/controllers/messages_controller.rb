@@ -3,6 +3,10 @@ class MessagesController < ApplicationController
     @messages = policy_scope(Message)
   end
 
+  def show
+    @message = Message.find(params[:id])
+  end
+
   def new
   end
 
