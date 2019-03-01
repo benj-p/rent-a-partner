@@ -6,7 +6,6 @@
       <% if @bookings_upcoming.empty? %>
         <p>You don't have any upcoming bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
       <% else %>
-        <h4>Upcoming bookings</h4>
         <div class="booking-card-container">
           <% @bookings_upcoming.sort_by(&:date).each do |booking| %>
             <div class="booking-card">
