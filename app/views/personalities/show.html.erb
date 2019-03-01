@@ -61,7 +61,7 @@
       <div class="personality-booking-form">
         <%= simple_form_for [@personality, @booking] do |f| %>
           <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
-          <%= submit_tag("Book now", class: "btn btn-green" )%>
+          <%= submit_tag("Book now", class: "btn btn-green", id: "book-now" )%>
         <% end %>
       </div>
     </div>
