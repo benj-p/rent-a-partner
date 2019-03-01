@@ -1,0 +1,31 @@
+.inbox-sender-name {
+  font-size: 14px;
+}
+
+.message-container {
+  position: relative;
+  p {
+    margin: 0;
+  }
+}
+
+.message-sent-info {
+  position: absolute;
+  bottom: 0px;
+  right: 4px;
+  font-size: 14px;
+  color: #ebebeb;
+}
+
+.inbox-header {
+  padding: 8px;
+  background: red;
+  color: #fff;
+  p {
+    margin: 0;
+  }
+}
+
+.inbox-container {
+  background: #fff;
+}
