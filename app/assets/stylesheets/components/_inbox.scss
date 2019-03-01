@@ -28,10 +28,12 @@
 .inbox-header {
   padding: 8px;
   background: $pink;
-  color: #fff;
+
   border-radius: 4px 4px 0px 0px;
   p {
     margin: 0;
+    color: white;
+    font-size: 14px;
   }
 }
 
@@ -45,6 +47,13 @@
 .inbox-messages-container {
     height: 60vh;
     overflow-y: scroll;
+    p{
+    font-size: 14px;
+    }
+}
+
+hr {
+  margin: 0;
 }
 
 .reply {
