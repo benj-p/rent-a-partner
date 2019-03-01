@@ -1,6 +1,11 @@
 #new-personality {
+  padding: 40px, 0px;
+  width: 70%;
   label {
-   font-weight: 500;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    width: 60%;
   }
 }
 
@@ -9,4 +14,3 @@
    font-weight: 500;
   }
 }
-
