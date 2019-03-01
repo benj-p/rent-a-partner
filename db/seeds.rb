@@ -114,4 +114,12 @@ review_5.personality = leti_1
 review_5.booking = booking_5
 review_5.save
 
+bookings = Booking.all
+
+bookings.each do |booking|
+  Message.create(recipient: booking.personality.user, sender: booking.user, booking: booking, content: "Hey, #{booking.personality.user.first_name}!", read: true)
+  Message.create(recipient: booking.user, sender: booking.personality.user, booking: booking, content: "Thanks for the message!")
+end
+
+
 puts "seeding done!"
