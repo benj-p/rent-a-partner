@@ -29,3 +29,8 @@
 .inbox-container {
   background: #fff;
 }
+
+.inbox-messages-container {
+    height: 60vh;
+    overflow-y: scroll;
+}
