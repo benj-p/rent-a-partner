@@ -120,7 +120,26 @@
       <% end %>
     </div>
     <div class="col-sm-12 col-md-4">
-      <h2>Inbox</h2>
+      <div class="inbox-container">
+        <div class="inbox-header">
+          <h3>Inbox</h3>
+        </div>
+        <div class="inbox-messages-container">
+          <% @messages.each do |message| %>
+            <div class="message-container <%= 'unread' unless message.read %>">
+              <%= cl_image_tag message.booking.personality.picture, height: 48, width: 48, crop: :fill, class: 'avatar' %>
+              <div class="message-info">
+                <p class="sender-name"><%= message.sender.first_name %> (<%= message.read ? 'Read' : 'Unread' %>). Regarding: <%= message.booking.personality.first_name %></p>
+                <p class="message-content"><%= message.content %></p>
+              </div>
+              <div class="message-actions">
+                <%= link_to "Open", message_path(message), class: 'btn btn-green' %>
+                <p><%= time_ago_in_words(message.created_at) %> ago</p>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>

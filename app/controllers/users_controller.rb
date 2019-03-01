@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     authorize @user
     @bookings_upcoming = @user.bookings.where("DATE(date) >= ?", Date.today)
     @bookings_past = @user.bookings.where("DATE(date) < ?", Date.today)
+    @messages = Message.where(recipient: @user)
   end
 
   private
