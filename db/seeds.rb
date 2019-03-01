@@ -121,5 +121,10 @@ bookings.each do |booking|
   Message.create(recipient: booking.user, sender: booking.personality.user, booking: booking, content: "Thanks for the message!")
 end
 
+10.times do
+  booking = Booking.first
+  Message.create(recipient: user_3, sender: booking.personality.user, booking: booking, content: "Thanks for the message!")
+end
+
 
 puts "seeding done!"
