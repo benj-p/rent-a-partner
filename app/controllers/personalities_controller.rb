@@ -15,11 +15,12 @@ class PersonalitiesController < ApplicationController
                     .location(params[:location]).gender(params[:gender]).price(params[:price_per_day].to_i)
                     .excluding(Personality.not_available(params[:date])))
 
-    def sort_by_price
+    case params[:sort]
+    when "price"
       @personalities = @personalities.sort_by(&:price_per_day)
+    when "rating"
+      @personalities = @personalities.sort_by { |personality| personality.reviews.average(:personality_rating) || 0 }.reverse
     end
-
-    sort_by_price if params[:sort] == "price"
   end
 
   def show
