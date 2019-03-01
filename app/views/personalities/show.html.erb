@@ -1,55 +1,82 @@
-
-
 <div class="container">
-	<div class= "name">
-		<h1><%= @personality.first_name %> <%= @personality.last_name %></h1>
-	</div>
-	<div id="profile-line"></div>
-</div>
-<div class="container specific">
-		<div class="left-container">
-			<div class="description">
-				<p> <strong>Desired age</strong>: <%= @personality.desired_age %></p>
-				<p><strong>Bio</strong>: <%= @personality.bio%></p>
-				<p><strong>Price</strong>: <%= @personality.price_per_day %></p>
-			</div>
-				<div class="edit-personality">
-					<% if policy(@personality).edit? %>
-				  		<%= link_to "Edit Personality", edit_personality_path(@personality) %>
-					<% end %>
-				</div>
-			<div class="personalities">
-				<p><strong><%= @personality.first_name %> <%= @personality.last_name %> is a fake personality of <%= @personality.user.first_name%></strong></p>
-				<% if @personalities.count > 1 %>
-					<p>Those are <%=@personality.user.first_name%>'s other personalities:</p>
-						<% @personalities.each do |personality| %>
-							<div class="personality">
-								<%= link_to personality_path(personality) do %>
-								<% next if personality == @personality   %>
-								<%= cl_image_tag personality.picture, height: 300, width: 400, crop: :fill %>
-								<p> <%= personality.first_name %> </p>
-								<% end %>
-							</div>
-						<% end %>
-				<% else %>
-					<p>This is  <%= @personality.user.first_name%>'s only personality</p>
-				<% end %>
-			</div>
-			
-			
-			
-			
-		</div>
+  <div class="personality-name">
+    <h1><%= @personality.first_name %> <%= @personality.last_name %></h1>
+    <div class="personality-rating">
+      <% unless @personality.reviews.average(:personality_rating).nil? %>
+        <%= ("<i class=\"fas fa-star\"></i>" * @personality.reviews.average(:personality_rating).round ).html_safe %> - <%= pluralize @personality.reviews.size, "review" %>
+      <% end %>
+    </div>
+  </div>
+  <div class="row personality-top">
+    <div class="col-md-8">
+      <p class="personality-bio">
+        <i class="fas fa-quote-left"></i> <em><%= @personality.bio%></em> <i class="fas fa-quote-right"></i>
+      </p>
+      <div class="personality-details">
+        <p>Interpreted by <strong><%= @personality.user.first_name%></strong></p>
+        <p>I match well with people who are about <strong><%= @personality.desired_age %> years old</strong></p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <%= cl_image_tag @personality.picture, class: "personality-profile-picture" %>
+    </div>
+  </div>
 
-		<div class="right-container">
-			
-	        <%= cl_image_tag @personality.picture, height: 300, width: 400, crop: :fill, gravity: :face %>
-			
-			 <div class="bookings">		
-				<%= simple_form_for [@personality, @booking] do |f| %>
-				    <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
-				    <%= f.submit "Book now", class: "btn btn-green btn-longer" %>
-				<% end %>
-			</div>
-		</div>
+  <div class="row personality-bottom">
+      <% if @personalities.count > 1 %>
+        <div class="col-md-8">
+          <p class="m-0 p-0">
+            Check out my other <%=  "personality".pluralize(@personalities.count-1) %>:
+          </p>
+          <div class="secondary-personalities">
+          <% @personalities.each do |personality| %>
+            <% next if personality == @personality %>
+              <div class="secondary-personality">
+                <%= link_to personality_path(personality) do %>
+                  <%= cl_image_tag personality.picture, class: "personality-secondary-pictures" %>
+                  <p class="secondary-personality-name"><%= personality.first_name %></p>
+              </div>
+            <% end %>
+          <% end %>
+          </div>
+        <% else %>
+          <p>This is  <%= @personality.user.first_name%>'s only personality</p>
+        <% end %>
+    </div>
+    <div class="col-md-4 personality-booking">
+      <p class="text-center"><strong><%= @personality.price_per_day %>£</strong> / day</p>
+      <div class="personality-booking-form">
+        <%= simple_form_for [@personality, @booking] do |f| %>
+          <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
+          <%= submit_tag("Book now", class: "btn btn-green" )%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% unless @personality.reviews.average(:personality_rating).nil? %>
+    <div class="row">
+      <div class="col-md-12 reviews-container">
+          <h2><%=  "Review".pluralize(@personality.reviews.size) %></h2>
+          <% @personality.reviews.each do |review| %>
+            <% unless review.personality_rating.nil? %>
+              <div class="review-card">
+                <div class="review-reviewer">
+                  <img src="<%= cl_image_path review.user.picture %>" class="small-avatar">
+                  <div class="review-reviewer-details">
+                    <p><%= review.user.first_name + " " + review.user.last_name %></p>
+                    <p><%= review.booking.date %></p>
+                  </div>
+                </div>
+                <p class="personality-rating"><%= ("<i class=\"fas fa-star\"></i>" * review.personality_rating).html_safe %></p>
+                <p><%= review.personality_comment %></p>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  <% end %>
+
 </div>
+
+
