@@ -12,6 +12,32 @@
   flex-flow: column;
 }
 
+p, h2, h4 {
+    color: #707070;
+}
+
+p {
+  font-size: 16px;
+
+}
+
+h2 {
+  font-size: 20px;
+  margin-top: 32px;
+}
+
+a {
+  color: #52B796;
+  &:hover {
+    color: #66ECB1;
+  }
+}
+
+h4 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
 html {
   height: 100%;
   box-sizing: border-box;

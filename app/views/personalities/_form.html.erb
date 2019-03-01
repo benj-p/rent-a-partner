@@ -1,7 +1,7 @@
 <div class="row">
   <%= simple_form_for personality do |f| %>
     <div class="col-md-12">
-      <h2>Basic Details</h2>
+      <h4>Basic Details</h2>
     </div>
     <div class="col-12 col-md-6">
       <%= f.input :first_name, wrapper_html: { class: 'rap-input' }, placeholder: 'Kitty' %>
@@ -13,7 +13,7 @@
       <%= f.input :bio, wrapper_html: { class: 'rap-input' }, placeholder: 'Your bio must be between 100 and 500 characters.' %>
     </div>
     <div class="col-md-12">
-      <h2>More info</h2>
+      <h4>More info</h4>
     </div>
     <div class="col-12 col-md-4">
       <%= f.input :desired_gender, :collection => %w[male female other], wrapper_html: { class: 'rap-input' } %>
@@ -25,7 +25,7 @@
       <%= f.input :price_per_day, wrapper_html: { class: 'rap-input' }, placeholder: '145' %>
     </div>
     <div class="col-md-12">
-      <h2>Add a Picture</h2>
+      <h4>Add a Picture</h4>
     </div>
     <div class="col-md-12">
       <%= f.input :picture %>
