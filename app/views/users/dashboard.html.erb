@@ -1,8 +1,9 @@
 <div class="container">
   <div class="row">
-    <h2><%= @user.first_name %>'s Dashboard</h2>
+
     <div class="col-sm-12 col-md-8">
-      <h3>Your bookings as a desperate</h3>
+      <h2><%= @user.first_name %>'s Dashboard</h2>
+      <h4>Upcoming Bookings</h4>
       <% if @bookings_upcoming.empty? %>
         <p>You don't have any upcoming bookings... check out <%= link_to "all our personalities", personalities_path %> to find your next date. 😍</p>
       <% else %>
@@ -129,8 +130,8 @@
             <div class="message-container <%= 'unread' unless message.read %>">
               <%= cl_image_tag message.booking.personality.picture, height: 48, width: 48, crop: :fill, class: 'avatar' %>
               <div class="message-info">
-                <p class="inbox-sender-name"><%= message.sender.first_name %> (<%= message.read ? 'Read' : 'Unread' %>). Regarding: <%= message.booking.personality.first_name %></p>
-                <p class="message-content"><%= message.content %></p>
+                <p class="inbox-sender-name"><%= message.sender.first_name %> regarding <%= message.booking.personality.first_name %></p>
+                <p class="inbox-message-content"><%= message.content %></p>
               </div>
               <div class="message-actions">
                 <%= link_to '<i class="fas fa-reply"></i>'.html_safe, message_path(message), class: 'reply' %>

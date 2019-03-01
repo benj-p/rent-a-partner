@@ -1,7 +1,7 @@
 .message-container {
   display: flex;
   align-items: center;
-  background: #ebebeb;
+  background: #fff;
   padding: 16px;
   margin: 8px;
   border-radius: 4px;
@@ -9,7 +9,7 @@
 
 .message-info {
   flex-grow: 1;
-  padding: 8px;
+  padding: 16px 8px;
   .sender-name {
     font-weight: bold;
     font-size: 24px;

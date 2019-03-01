@@ -2,11 +2,19 @@
   font-size: 14px;
 }
 
+.inbox-message-content {
+  font-size: 14px;
+}
+
 .message-container {
   position: relative;
   p {
     margin: 0;
   }
+}
+
+.message-info {
+
 }
 
 .message-sent-info {
@@ -19,8 +27,9 @@
 
 .inbox-header {
   padding: 8px;
-  background: red;
+  background: $pink;
   color: #fff;
+  border-radius: 4px 4px 0px 0px;
   p {
     margin: 0;
   }
@@ -28,9 +37,19 @@
 
 .inbox-container {
   background: #fff;
+  border-radius: 4px;
+  margin-top: 48px;
 }
 
 .inbox-messages-container {
     height: 60vh;
     overflow-y: scroll;
+}
+
+.reply {
+  color: #505050;
+}
+
+.unread {
+  font-weight: bold;
 }
