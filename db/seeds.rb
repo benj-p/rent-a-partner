@@ -96,4 +96,22 @@ booking_5.personality = leti_1
 booking_5.user = user_3
 booking_5.save
 
+review_2 = Review.new(personality_rating: (1..5).to_a.sample, personality_comment: Faker::Lorem.paragraph(2), user_rating: (1..5).to_a.sample, user_comment: Faker::Lorem.paragraph(2))
+review_2.user = user_1
+review_2.personality = ben_2
+review_2.booking = booking_2
+review_2.save
+
+review_4 = Review.new(personality_rating: (1..5).to_a.sample, personality_comment: Faker::Lorem.paragraph(2), user_rating: (1..5).to_a.sample, user_comment: Faker::Lorem.paragraph(2))
+review_4.user = user_3
+review_4.personality = leti_1
+review_4.booking = booking_4
+review_4.save
+
+review_5 = Review.new(personality_rating: (1..5).to_a.sample, personality_comment: Faker::Lorem.paragraph(2), user_rating: (1..5).to_a.sample, user_comment: Faker::Lorem.paragraph(2))
+review_5.user = user_3
+review_5.personality = leti_1
+review_5.booking = booking_5
+review_5.save
+
 puts "seeding done!"
