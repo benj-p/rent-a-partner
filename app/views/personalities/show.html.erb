@@ -32,7 +32,7 @@
           <% @personalities.each do |personality| %>
             <% next if personality == @personality %>
               <div class="secondary-personality">
-                <%= link_to personality_path(personality) do %>
+                <%= link_to personality_path(personality, date: @date) do %>
                   <%= cl_image_tag personality.picture, class: "personality-secondary-pictures" %>
                   <p class="secondary-personality-name"><%= personality.first_name %></p>
               </div>

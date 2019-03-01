@@ -28,7 +28,7 @@ class MessagesController < ApplicationController
     authorize @message
 
     if @message.save
-      redirect_to messages_path
+      redirect_to dashboard_user_path(current_user)
       flash.notice = "Message sent to #{@recipient.first_name}"
     else
       redirect_to :back
