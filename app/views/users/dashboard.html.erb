@@ -78,7 +78,7 @@
 
           <h3>Your bookings as a partner</h3>
           <% if @user.personalities.each { |personality| personality.bookings }.empty? %>
-            <p>Looks like noone has booked you yet, you could try <%= link_to "creating a new personality", personalities_path %> 😃</p>
+            <p>Looks like noone has booked you yet, you could try <%= link_to "creating a new personality", new_personality_path %> 😃</p>
           <% else %>
                 <div class="booking-card-container">
               <% @user.personalities.each do |personality| %>
@@ -120,7 +120,7 @@
         <% end %>
       <% end %>
     </div>
-    <div class="col-sm-12 col-md-4">
+     <div class="col-sm-12 col-md-4 static">
       <div class="inbox-container">
         <div class="inbox-header">
           <p>Inbox</p>

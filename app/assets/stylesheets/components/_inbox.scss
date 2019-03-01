@@ -39,6 +39,7 @@
   background: #fff;
   border-radius: 4px;
   margin-top: 48px;
+  position: static;
 }
 
 .inbox-messages-container {
@@ -52,4 +53,9 @@
 
 .unread {
   font-weight: bold;
+}
+
+.static {
+  position: fixed;
+  right: 16px;
 }
