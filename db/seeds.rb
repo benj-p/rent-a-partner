@@ -41,35 +41,47 @@ url = "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/28166255_159709798170868_90
 user_4.remote_picture_url = url
 user_4.save
 
-ben_1 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: "I am a you", desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
-url = "https://s1.r29static.com//bin/entry/c20/x,80/1884199/image.jpg"
+
+
+ben_1 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: "I am a young entrepreneur who loves networking and black tie events. My type of women ? older women", desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+url = "https://assets3.thrillist.com/v1/image/1656352/size/tmg-article_default_mobile.jpg"
 ben_1.remote_picture_url = url
 ben_1.user = user_2
 ben_1.save
 
-ben_2 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+p ben_1
+
+ben_2 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: "I moved to London from the USA. I am loud ad have a very American accent. If you want to make your ex jealous, I am the person you need", desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "https://i.pinimg.com/originals/df/14/96/df1496ce09b5f6d1411cd47245b44a5a.jpg"
 ben_2.remote_picture_url = url
 ben_2.user = user_2
 ben_2.save
 
-ben_3 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+p ben_2
+
+ben_3 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: "I love Whisky, cigars and romance. Rent me if you're up for an adventure.", desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "https://m.media-amazon.com/images/M/MV5BMTQ1N2QxMTEtMDI1Ny00MGYzLWFhYzgtMGU0Mzc4MTI4ZjA5XkEyXkFqcGdeQXVyNTc3MjUzNTI@._V1_.jpg"
 ben_3.remote_picture_url = url
 ben_3.user = user_2
 ben_3.save
 
-leti_1 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+p ben_3
+
+leti_1 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: "my name is Leah, I am the typical pretty girl who doesn't speak much.I love pole dancing and yoga", desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "http://www.contactmusic.com/pics/ln/20170523/230517_cff_70th_anniversary_gala/70th-annual-cannes-film-festival_5699156.jpg"
 leti_1.remote_picture_url = url
 leti_1.user = user_4
 leti_1.save
 
-leti_2 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+p leti_1
+
+leti_2 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: "My parents raised me so that one day I would be president. Today I am a serious diplomate on my way to realise their dream"), desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "https://ucesy-sk.happyhair.sk/celebrity_img/Laetitia_800-2015-06-11-181209.jpg"
 leti_2.remote_picture_url = url
 leti_2.user = user_4
 leti_2.save
+
+p leti_2
 
 booking_1 = Booking.new({date: Date.new(2019,7,22), message: "Hi, I can't wait to meet you! Your profile looks really good. I hope you'll enjoy this, it should be fun."})
 booking_1.personality = ben_1
