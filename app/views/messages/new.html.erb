@@ -3,8 +3,8 @@
     <div class="col-sm-12 col-md-6 col-md-offset-3">
       <div class="centered-flexbox">
         <div class="message-response-form-container">
-        <p>New Message to <%= @recipient.first_name %></p>
-        <p>Regarding booking with <%= @booking.personality.first_name %> on <%= @booking.date %></p>
+        <p>New message to <strong><%= @recipient.first_name %></strong> regarding booking with <strong><%= @booking.personality.first_name %></strong>
+         <p>Booking on <%= @booking.date %></p></p>
         <%= simple_form_for [@booking, @message] do |f| %>
          <%= f.input :content %>
          <%= f.input :recipient_id, :as => :hidden, :input_html => { :value => @recipient.id } %>
