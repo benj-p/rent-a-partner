@@ -41,7 +41,7 @@ url = "https://scontent-lhr3-1.xx.fbcdn.net/v/t1.0-9/28166255_159709798170868_90
 user_4.remote_picture_url = url
 user_4.save
 
-ben_1 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+ben_1 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: "I am a you", desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "https://s1.r29static.com//bin/entry/c20/x,80/1884199/image.jpg"
 ben_1.remote_picture_url = url
 ben_1.user = user_2
