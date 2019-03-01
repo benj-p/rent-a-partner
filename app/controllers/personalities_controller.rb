@@ -30,7 +30,9 @@ class PersonalitiesController < ApplicationController
     end
     @user = @personality.user
     @personalities = @user.personalities
+    @similar_personalities = Personality.joins(:user).where("users.gender = '#{@user.gender}'")
     @booking = Booking.new
+    # raise
   end
 
   def new
