@@ -75,7 +75,7 @@ leti_1.save
 
 p leti_1
 
-leti_2 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: "My parents raised me so that one day I would be president. Today I am a serious diplomate on my way to realise their dream"), desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
+leti_2 = Personality.new(first_name: Faker::Name.female_first_name, last_name: Faker::Name.last_name, bio: "My parents raised me so that one day I would be president. Today I am a serious diplomate on my way to realise their dream", desired_gender: "male", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
 url = "https://ucesy-sk.happyhair.sk/celebrity_img/Laetitia_800-2015-06-11-181209.jpg"
 leti_2.remote_picture_url = url
 leti_2.user = user_4
