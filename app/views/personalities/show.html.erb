@@ -23,12 +23,12 @@
   </div>
 
   <div class="row personality-bottom">
+    <div class="col-md-8">
       <% if @personalities.count > 1 %>
-        <div class="col-md-8">
-          <p class="m-0 p-0">
-            Check out my other <%=  "personality".pluralize(@personalities.count-1) %>:
-          </p>
-          <div class="secondary-personalities">
+        <p class="m-0 p-0">
+          Check out my other <%=  "personality".pluralize(@personalities.count-1) %>:
+        </p>
+        <div class="secondary-personalities">
           <% @personalities.each do |personality| %>
             <% next if personality == @personality %>
               <div class="secondary-personality">
@@ -38,17 +38,30 @@
               </div>
             <% end %>
           <% end %>
-          </div>
-        <% else %>
-          <p>This is  <%= @personality.user.first_name%>'s only personality</p>
-        <% end %>
+        </div>
+      <% else %>
+        <p class="m-0 p-0">
+          You may also be interested in the following personalities:
+        </p>
+        <div class="secondary-personalities">
+          <% @similar_personalities.take(4).each do |personality| %>
+            <% next if personality == @personality %>
+              <div class="secondary-personality">
+                <%= link_to personality_path(personality) do %>
+                  <%= cl_image_tag personality.picture, class: "personality-secondary-pictures" %>
+                  <p class="secondary-personality-name"><%= personality.first_name %></p>
+              </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
     <div class="col-md-4 personality-booking">
       <p class="text-center"><strong><%= @personality.price_per_day %>£</strong> / day</p>
       <div class="personality-booking-form">
         <%= simple_form_for [@personality, @booking] do |f| %>
           <%= date_field_tag(:date, @date, options = {min: Date.today()}) %>
-          <%= submit_tag("Book now", class: "btn btn-green" )%>
+          <%= submit_tag("Book now", class: "btn btn-green", id: "book-now" )%>
         <% end %>
       </div>
     </div>
