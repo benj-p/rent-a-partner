@@ -48,7 +48,7 @@ ben_1.user = user_2
 ben_1.save
 
 ben_2 = Personality.new(first_name: Faker::Name.male_first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.paragraph(5), desired_gender: "female", desired_age: (18..60).to_a.sample, price_per_day: (10..200).to_a.sample)
-url = "https://usercontent2.hubstatic.com/13198383_f520.jpg"
+url = "https://i.pinimg.com/originals/df/14/96/df1496ce09b5f6d1411cd47245b44a5a.jpg"
 ben_2.remote_picture_url = url
 ben_2.user = user_2
 ben_2.save
