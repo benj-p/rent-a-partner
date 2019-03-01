@@ -38,10 +38,15 @@
 }
 
 .message-response-form-container {
-  background: $pink;
-  padding: 8px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: $pink;
+  padding: 16px;
   border-radius: 4px;
-  margin: 16px;
+  padding: 56px, 16px;
+  margin-top: 34px;
+  border-radius: 5px;
+  color: #616668;
 }
 
 .unread {
